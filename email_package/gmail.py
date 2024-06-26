@@ -48,21 +48,22 @@ class Gmail:
     def get_message(self, message_id):
         return _get_message(self.service, message_id)
 
+if __name__ == '__main__':
 
-# all the functions should be here. how move them here
-gmail = Gmail('C:/Users/zino/Downloads/credentials.json', 'token.pickle')
+    # all the functions should be here. how move them here
+    gmail = Gmail('C:/Users/zino/Downloads/credentials.json', 'token.pickle')
 
-# SEND MESSAGE
-m_id = gmail.send_message('mujappiah@gmail.com', 'Subject', 'Refactored Class')
+    # SEND MESSAGE
+    m_id = gmail.send_message('mujappiah@gmail.com', 'Subject', 'Refactored Class')
 
-# GET MESSAGES
-messages = gmail.messages(label_ids=['INBOX'])
-for i in messages:
-    print(i)
+    # GET MESSAGES
+    messages = gmail.messages(label_ids=['INBOX'])
+    for i in messages:
+        print(i)
 
-# GET MESSAGE
-if len(messages) != 0:
-    message = gmail.get_message(messages[0]['id'])
+    # GET MESSAGE
+    if len(messages) != 0:
+        message = gmail.get_message(messages[0]['id'])
 
 # DELETE MESSAGE
 if len(messages) != 0:
