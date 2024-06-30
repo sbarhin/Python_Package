@@ -4,9 +4,9 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-from email_package.trash import _trash_message
-from email_package.fetching import _list_messages, _get_message
-from email_package.send import _send_message
+from pycomms_pay.email_package.trash import _trash_message
+from pycomms_pay.email_package.fetching import _list_messages, _get_message
+from pycomms_pay.email_package.send import _send_message
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
@@ -48,22 +48,23 @@ class Gmail:
     def get_message(self, message_id):
         return _get_message(self.service, message_id)
 
+if __name__ == '__main__':
 
-# all the functions should be here. how move them here
-gmail = Gmail('C:/Users/zino/Downloads/credentials.json', 'token.pickle')
+    # all the functions should be here. how move them here
+    gmail = Gmail('C:/Users/zino/Downloads/credentials.json', 'token.pickle')
 
-# SEND MESSAGE
-m_id = gmail.send_message('mujappiah@gmail.com', 'Subject', 'Refactored Class')
+    # SEND MESSAGE
+    m_id = gmail.send_message('mujappiah@gmail.com', 'Subject', 'Refactored Class')
 
-# GET MESSAGES
-messages = gmail.messages(label_ids=['INBOX'])
-for i in messages:
-    print(i)
+    # GET MESSAGES
+    messages = gmail.messages(label_ids=['INBOX'])
+    for i in messages:
+        print(i)
 
-# GET MESSAGE
-if len(messages) != 0:
-    message = gmail.get_message(messages[0]['id'])
+    # GET MESSAGE
+    if len(messages) != 0:
+        message = gmail.get_message(messages[0]['id'])
 
 # DELETE MESSAGE
-if len(messages) != 0:
-    gmail.trash_message(messages[0]['id'])
+    if len(messages) != 0:
+        gmail.trash_message(messages[0]['id'])
