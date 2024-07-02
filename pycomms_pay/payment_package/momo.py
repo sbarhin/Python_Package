@@ -4,6 +4,8 @@ from basicauth import encode
 
 import requests
 
+from pycomms_pay.payment_package.config import SUBSCRIPTION_KEY, USER_ID, API_KEY
+
 # config.py
 API_BASE_URL = "https://sandbox.momodeveloper.mtn.com"
 
@@ -86,3 +88,15 @@ class Momo:
         json_respon = response.json()
 
         return json_respon
+
+
+if __name__ == "__main__":
+    momo = Momo(API_KEY, SUBSCRIPTION_KEY, USER_ID)
+    pay = momo.transfer_money("1000", "EUR", "123456", "233555417205", "Payment for services", "Thank you")
+    if pay['response'] in [200, 202]:
+        verify = momo.verifymomo(pay['ref'])
+        print(verify)
+        balance = momo.momobalance()
+        print(balance)
+    else:
+        print('Something went wrong')

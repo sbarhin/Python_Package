@@ -1,2 +1,3 @@
 /pycomms_pay/email_package/token.pickle
-/.pypirc
+/pycomms_pay/sms_package/config.py
+/pycomms_pay/payment_package/config.py
