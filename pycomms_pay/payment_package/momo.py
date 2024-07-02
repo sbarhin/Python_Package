@@ -6,9 +6,6 @@ import requests
 
 # config.py
 API_BASE_URL = "https://sandbox.momodeveloper.mtn.com"
-API_KEY = "35fef4a2c29e4034bff716ac16884753"
-USER_ID = "76dd5a76-e276-4f82-866f-def2f9904f43"
-SUBSCRIPTION_KEY = 'b84d31ba19854271880cb1f968b1c530'
 
 
 class Momo:
@@ -89,15 +86,3 @@ class Momo:
         json_respon = response.json()
 
         return json_respon
-
-
-if __name__ == "__main__":
-    momo = Momo(API_KEY, SUBSCRIPTION_KEY, USER_ID)
-    pay = momo.transfer_money("1000", "EUR", "123456", "233555417205", "Payment for services", "Thank you")
-    if pay['response'] in [200, 202]:
-        verify = momo.verifymomo(pay['ref'])
-        print(verify)
-        balance = momo.momobalance()
-        print(balance)
-    else:
-        print('Something went wrong')
