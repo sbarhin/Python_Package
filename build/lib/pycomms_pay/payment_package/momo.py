@@ -12,11 +12,11 @@ SUBSCRIPTION_KEY = 'b84d31ba19854271880cb1f968b1c530'
 
 
 class Momo:
-    def __init__(self, api_key, subscription_key, user_id):
+    def __init__(self):
         self.api_base_url = API_BASE_URL
-        self.api_key = api_key
-        self.subscription_key = subscription_key
-        self.user_id = user_id
+        self.api_key = API_KEY
+        self.subscription_key = SUBSCRIPTION_KEY
+        self.user_id = USER_ID
         self.session = requests.Session()
         self.token = ""
         self.auth = str(
@@ -92,7 +92,7 @@ class Momo:
 
 
 if __name__ == "__main__":
-    momo = Momo(API_KEY, SUBSCRIPTION_KEY, USER_ID)
+    momo = Momo()
     pay = momo.transfer_money("1000", "EUR", "123456", "233555417205", "Payment for services", "Thank you")
     if pay['response'] in [200, 202]:
         verify = momo.verifymomo(pay['ref'])

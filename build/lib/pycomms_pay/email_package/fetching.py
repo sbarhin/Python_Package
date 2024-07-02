@@ -21,7 +21,7 @@ def _list_messages(service, user_id='me', label_ids=None):
 
     except Exception as e:
         print(f'An error occurred: {e}')
-        return []
+        return None
 
 
 def _get_message(service, message_id, user_id='me'):
@@ -30,6 +30,6 @@ def _get_message(service, message_id, user_id='me'):
         return message
     except Exception as e:
         print(f'An error occurred: {e}')
-        return []
+        return None
 
 
