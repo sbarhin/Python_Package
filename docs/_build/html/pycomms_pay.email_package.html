@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycomms_pay.email_package package &mdash; PyCommsPay 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58fbf978"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyCommsPay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pycomms_pay.email_package package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.email_package.fetching">pycomms_pay.email_package.fetching module</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.email_package.gmail">pycomms_pay.email_package.gmail module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.email_package.gmail.Gmail"><code class="docutils literal notranslate"><span class="pre">Gmail</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.email_package.gmail.Gmail.get_message"><code class="docutils literal notranslate"><span class="pre">Gmail.get_message()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.gmail.Gmail.messages"><code class="docutils literal notranslate"><span class="pre">Gmail.messages()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.gmail.Gmail.send_message"><code class="docutils literal notranslate"><span class="pre">Gmail.send_message()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.gmail.Gmail.trash_message"><code class="docutils literal notranslate"><span class="pre">Gmail.trash_message()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.email_package.send">pycomms_pay.email_package.send module</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.email_package.trash">pycomms_pay.email_package.trash module</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.email_package">Module contents</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.email_package.Gmail"><code class="docutils literal notranslate"><span class="pre">Gmail</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.email_package.Gmail.get_message"><code class="docutils literal notranslate"><span class="pre">Gmail.get_message()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.Gmail.messages"><code class="docutils literal notranslate"><span class="pre">Gmail.messages()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.Gmail.send_message"><code class="docutils literal notranslate"><span class="pre">Gmail.send_message()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.email_package.Gmail.trash_message"><code class="docutils literal notranslate"><span class="pre">Gmail.trash_message()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyCommsPay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pycomms_pay.email_package package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pycomms_pay.email_package.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pycomms-pay-email-package-package">
+<h1>pycomms_pay.email_package package<a class="headerlink" href="#pycomms-pay-email-package-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.email_package.fetching">
+<span id="pycomms-pay-email-package-fetching-module"></span><h2>pycomms_pay.email_package.fetching module<a class="headerlink" href="#module-pycomms_pay.email_package.fetching" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.email_package.gmail">
+<span id="pycomms-pay-email-package-gmail-module"></span><h2>pycomms_pay.email_package.gmail module<a class="headerlink" href="#module-pycomms_pay.email_package.gmail" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.gmail.Gmail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.email_package.gmail.</span></span><span class="sig-name descname"><span class="pre">Gmail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.gmail.Gmail" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with Gmail API for sending, fetching, and deleting emails.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>creds (google.oauth2.credentials.Credentials): The OAuth2 credentials for the Gmail API.
+credentials_path (str): Path to the credentials JSON file.
+token_path (str): Path to the token file.
+service (googleapiclient.discovery.Resource): The Gmail API service instance.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.gmail.Gmail.get_message">
+<span class="sig-name descname"><span class="pre">get_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.get_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.gmail.Gmail.get_message" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the full content of a specific message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_id (str): The ID of the message to retrieve.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the message metadata and content.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.gmail.Gmail.messages">
+<span class="sig-name descname"><span class="pre">messages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.messages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.gmail.Gmail.messages" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of messages from the user’s mailbox.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>label_ids (list, optional): List of label IDs to filter messages by. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of message dictionaries, each containing an ‘id’ and ‘threadId’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.gmail.Gmail.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.gmail.Gmail.send_message" title="Link to this definition"></a></dt>
+<dd><p>Sends an email message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>to (str): The recipient’s email address.
+subject (str): The subject of the email.
+body (str): The body of the email.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The sent message details.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.gmail.Gmail.trash_message">
+<span class="sig-name descname"><span class="pre">trash_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.trash_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.gmail.Gmail.trash_message" title="Link to this definition"></a></dt>
+<dd><p>Deletes a message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_id (str): The ID of the message to be trashed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.email_package.send">
+<span id="pycomms-pay-email-package-send-module"></span><h2>pycomms_pay.email_package.send module<a class="headerlink" href="#module-pycomms_pay.email_package.send" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.email_package.trash">
+<span id="pycomms-pay-email-package-trash-module"></span><h2>pycomms_pay.email_package.trash module<a class="headerlink" href="#module-pycomms_pay.email_package.trash" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.email_package">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pycomms_pay.email_package" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.Gmail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.email_package.</span></span><span class="sig-name descname"><span class="pre">Gmail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.Gmail" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with Gmail API for sending, fetching, and deleting emails.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>creds (google.oauth2.credentials.Credentials): The OAuth2 credentials for the Gmail API.
+credentials_path (str): Path to the credentials JSON file.
+token_path (str): Path to the token file.
+service (googleapiclient.discovery.Resource): The Gmail API service instance.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.Gmail.get_message">
+<span class="sig-name descname"><span class="pre">get_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.get_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.Gmail.get_message" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the full content of a specific message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_id (str): The ID of the message to retrieve.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the message metadata and content.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.Gmail.messages">
+<span class="sig-name descname"><span class="pre">messages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.messages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.Gmail.messages" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of messages from the user’s mailbox.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>label_ids (list, optional): List of label IDs to filter messages by. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>list: A list of message dictionaries, each containing an ‘id’ and ‘threadId’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.Gmail.send_message">
+<span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.send_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.Gmail.send_message" title="Link to this definition"></a></dt>
+<dd><p>Sends an email message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>to (str): The recipient’s email address.
+subject (str): The subject of the email.
+body (str): The body of the email.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The sent message details.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.email_package.Gmail.trash_message">
+<span class="sig-name descname"><span class="pre">trash_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/email_package/gmail.html#Gmail.trash_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.email_package.Gmail.trash_message" title="Link to this definition"></a></dt>
+<dd><p>Deletes a message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message_id (str): The ID of the message to be trashed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Shaukat Bint Arhin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

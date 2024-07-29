@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycomms_pay.payment_package package &mdash; PyCommsPay 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58fbf978"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyCommsPay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pycomms_pay.payment_package package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.config">pycomms_pay.payment_package.config module</a></li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.momo">pycomms_pay.payment_package.momo module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.momo.Momo"><code class="docutils literal notranslate"><span class="pre">Momo</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.momo.Momo.get_token"><code class="docutils literal notranslate"><span class="pre">Momo.get_token()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.momo.Momo.momobalance"><code class="docutils literal notranslate"><span class="pre">Momo.momobalance()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.momo.Momo.transfer_money"><code class="docutils literal notranslate"><span class="pre">Momo.transfer_money()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.momo.Momo.verifymomo"><code class="docutils literal notranslate"><span class="pre">Momo.verifymomo()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.paypal">pycomms_pay.payment_package.paypal module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paypal.Paypal"><code class="docutils literal notranslate"><span class="pre">Paypal</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paypal.Paypal.authorize"><code class="docutils literal notranslate"><span class="pre">Paypal.authorize()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paypal.Paypal.capture_order"><code class="docutils literal notranslate"><span class="pre">Paypal.capture_order()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paypal.Paypal.create_order"><code class="docutils literal notranslate"><span class="pre">Paypal.create_order()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.paystack">pycomms_pay.payment_package.paystack module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paystack.Paystack"><code class="docutils literal notranslate"><span class="pre">Paystack</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paystack.Paystack.charge_authorization"><code class="docutils literal notranslate"><span class="pre">Paystack.charge_authorization()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paystack.Paystack.initialize_transaction"><code class="docutils literal notranslate"><span class="pre">Paystack.initialize_transaction()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.paystack.Paystack.verify_transaction"><code class="docutils literal notranslate"><span class="pre">Paystack.verify_transaction()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.req_body_paypal">pycomms_pay.payment_package.req_body_paypal module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Amount"><code class="docutils literal notranslate"><span class="pre">Amount</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Amount.toJson"><code class="docutils literal notranslate"><span class="pre">Amount.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Breakdown"><code class="docutils literal notranslate"><span class="pre">Breakdown</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Breakdown.toJson"><code class="docutils literal notranslate"><span class="pre">Breakdown.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Card"><code class="docutils literal notranslate"><span class="pre">Card</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Card.toJson"><code class="docutils literal notranslate"><span class="pre">Card.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DiscountAmount"><code class="docutils literal notranslate"><span class="pre">DiscountAmount</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DiscountAmount.toJson"><code class="docutils literal notranslate"><span class="pre">DiscountAmount.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DutyAmount"><code class="docutils literal notranslate"><span class="pre">DutyAmount</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DutyAmount.toJson"><code class="docutils literal notranslate"><span class="pre">DutyAmount.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level2"><code class="docutils literal notranslate"><span class="pre">Level2</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level2.toJson"><code class="docutils literal notranslate"><span class="pre">Level2.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level3"><code class="docutils literal notranslate"><span class="pre">Level3</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level3.toJson"><code class="docutils literal notranslate"><span class="pre">Level3.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.LineItems"><code class="docutils literal notranslate"><span class="pre">LineItems</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.LineItems.toJson"><code class="docutils literal notranslate"><span class="pre">LineItems.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Name"><code class="docutils literal notranslate"><span class="pre">Name</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Name.toJson"><code class="docutils literal notranslate"><span class="pre">Name.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Options"><code class="docutils literal notranslate"><span class="pre">Options</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Options.toJson"><code class="docutils literal notranslate"><span class="pre">Options.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody"><code class="docutils literal notranslate"><span class="pre">OrderBody</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody.toJson"><code class="docutils literal notranslate"><span class="pre">OrderBody.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderItem"><code class="docutils literal notranslate"><span class="pre">OrderItem</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderItem.toJson"><code class="docutils literal notranslate"><span class="pre">OrderItem.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Payee"><code class="docutils literal notranslate"><span class="pre">Payee</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Payee.toJson"><code class="docutils literal notranslate"><span class="pre">Payee.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction"><code class="docutils literal notranslate"><span class="pre">PaymentInstruction</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction.toJson"><code class="docutils literal notranslate"><span class="pre">PaymentInstruction.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PlatformFees"><code class="docutils literal notranslate"><span class="pre">PlatformFees</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PlatformFees.toJson"><code class="docutils literal notranslate"><span class="pre">PlatformFees.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit"><code class="docutils literal notranslate"><span class="pre">PurchaseUnit</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit.toJson"><code class="docutils literal notranslate"><span class="pre">PurchaseUnit.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Shipping"><code class="docutils literal notranslate"><span class="pre">Shipping</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Shipping.toJson"><code class="docutils literal notranslate"><span class="pre">Shipping.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAddress"><code class="docutils literal notranslate"><span class="pre">ShippingAddress</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAddress.toJson"><code class="docutils literal notranslate"><span class="pre">ShippingAddress.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount"><code class="docutils literal notranslate"><span class="pre">ShippingAmount</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount.toJson"><code class="docutils literal notranslate"><span class="pre">ShippingAmount.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.SupplementaryData"><code class="docutils literal notranslate"><span class="pre">SupplementaryData</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.SupplementaryData.toJson"><code class="docutils literal notranslate"><span class="pre">SupplementaryData.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UPC"><code class="docutils literal notranslate"><span class="pre">UPC</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UPC.toJson"><code class="docutils literal notranslate"><span class="pre">UPC.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount"><code class="docutils literal notranslate"><span class="pre">UnitAmount</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount.toJson"><code class="docutils literal notranslate"><span class="pre">UnitAmount.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.json"><code class="docutils literal notranslate"><span class="pre">json()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.nonNull"><code class="docutils literal notranslate"><span class="pre">nonNull()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package.req_body_paystack">pycomms_pay.payment_package.req_body_paystack module</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth"><code class="docutils literal notranslate"><span class="pre">ChargeAuth</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth.toJson"><code class="docutils literal notranslate"><span class="pre">ChargeAuth.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields"><code class="docutils literal notranslate"><span class="pre">CustomFields</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields.toJson"><code class="docutils literal notranslate"><span class="pre">CustomFields.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info1"><code class="docutils literal notranslate"><span class="pre">Info1</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info1.toJson"><code class="docutils literal notranslate"><span class="pre">Info1.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info2"><code class="docutils literal notranslate"><span class="pre">Info2</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info2.toJson"><code class="docutils literal notranslate"><span class="pre">Info2.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody"><code class="docutils literal notranslate"><span class="pre">InitializeBody</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody.toJson"><code class="docutils literal notranslate"><span class="pre">InitializeBody.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Metadata"><code class="docutils literal notranslate"><span class="pre">Metadata</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Metadata.toJson"><code class="docutils literal notranslate"><span class="pre">Metadata.toJson()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.json"><code class="docutils literal notranslate"><span class="pre">json()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.nonNull"><code class="docutils literal notranslate"><span class="pre">nonNull()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pycomms_pay.payment_package">Module contents</a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.Momo"><code class="docutils literal notranslate"><span class="pre">Momo</span></code></a><ul>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.Momo.get_token"><code class="docutils literal notranslate"><span class="pre">Momo.get_token()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.Momo.momobalance"><code class="docutils literal notranslate"><span class="pre">Momo.momobalance()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.Momo.transfer_money"><code class="docutils literal notranslate"><span class="pre">Momo.transfer_money()</span></code></a></li>
+<li><a class="reference internal" href="#pycomms_pay.payment_package.Momo.verifymomo"><code class="docutils literal notranslate"><span class="pre">Momo.verifymomo()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyCommsPay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pycomms_pay.payment_package package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pycomms_pay.payment_package.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pycomms-pay-payment-package-package">
+<h1>pycomms_pay.payment_package package<a class="headerlink" href="#pycomms-pay-payment-package-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.payment_package.config">
+<span id="pycomms-pay-payment-package-config-module"></span><h2>pycomms_pay.payment_package.config module<a class="headerlink" href="#module-pycomms_pay.payment_package.config" title="Link to this heading"></a></h2>
+</section>
+<section id="module-pycomms_pay.payment_package.momo">
+<span id="pycomms-pay-payment-package-momo-module"></span><h2>pycomms_pay.payment_package.momo module<a class="headerlink" href="#module-pycomms_pay.payment_package.momo" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.momo.Momo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.momo.</span></span><span class="sig-name descname"><span class="pre">Momo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscription_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.momo.Momo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the MTN MoMo API for sending money, checking balance, and verifying transactions.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>api_base_url (str): The base URL for the MoMo API.
+api_key (str): The API key for authentication.
+subscription_key (str): The subscription key for the MoMo API.
+user_id (str): The user ID for authentication.
+session (requests.Session): The requests session for making API calls.
+token (str): The access token for authenticated requests.
+auth (str): The base64 encoded authentication string.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.momo.Momo.get_token">
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.get_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.momo.Momo.get_token" title="Link to this definition"></a></dt>
+<dd><p>Retrieves and sets the access token for authenticated requests.</p>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while fetching the token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.momo.Momo.momobalance">
+<span class="sig-name descname"><span class="pre">momobalance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.momobalance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.momo.Momo.momobalance" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the account balance.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the account balance details.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while fetching the balance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.momo.Momo.transfer_money">
+<span class="sig-name descname"><span class="pre">transfer_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee_note</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payer_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.transfer_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.momo.Momo.transfer_money" title="Link to this definition"></a></dt>
+<dd><p>Initiates a money transfer request.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>amount (str): The amount of money to transfer.
+currency (str): The currency of the amount.
+external_id (str): The external ID for the transaction.
+payer (str): The payer’s MSISDN (mobile number).
+payee_note (str): The note for the payee.
+payer_message (str): The message for the payer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the response status code and reference ID.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while initiating the transfer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.momo.Momo.verifymomo">
+<span class="sig-name descname"><span class="pre">verifymomo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.verifymomo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.momo.Momo.verifymomo" title="Link to this definition"></a></dt>
+<dd><p>Verifies the status of a MoMo transaction.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>txn (str): The transaction ID to verify.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the transaction details.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while verifying the transaction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.payment_package.paypal">
+<span id="pycomms-pay-payment-package-paypal-module"></span><h2>pycomms_pay.payment_package.paypal module<a class="headerlink" href="#module-pycomms_pay.payment_package.paypal" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paypal.Paypal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.paypal.</span></span><span class="sig-name descname"><span class="pre">Paypal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paypal.html#Paypal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paypal.Paypal" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paypal.Paypal.authorize">
+<span class="sig-name descname"><span class="pre">authorize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paypal.html#Paypal.authorize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paypal.Paypal.authorize" title="Link to this definition"></a></dt>
+<dd><p>Authorizes the PayPal API and retrieves an access token.</p>
+<p>This method performs a POST request to obtain an OAuth2 token for subsequent API requests.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while authorizing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paypal.Paypal.capture_order">
+<span class="sig-name descname"><span class="pre">capture_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paypal.html#Paypal.capture_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paypal.Paypal.capture_order" title="Link to this definition"></a></dt>
+<dd><p>Captures a PayPal order.</p>
+<p>Sends a POST request to capture the specified order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order_id</strong> (<em>str</em>) – The ID of the order to be captured.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: The response text from the capture request.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while capturing the order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paypal.Paypal.create_order">
+<span class="sig-name descname"><span class="pre">create_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody" title="pycomms_pay.payment_package.req_body_paypal.OrderBody"><span class="pre">OrderBody</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paypal.html#Paypal.create_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paypal.Paypal.create_order" title="Link to this definition"></a></dt>
+<dd><p>Creates a PayPal order.</p>
+<p>Sends a POST request to create a new order with the specified details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>body</strong> (<a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody" title="pycomms_pay.payment_package.req_body_paypal.OrderBody"><em>OrderBody</em></a>) – An instance of OrderBody containing order details.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while creating the order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.payment_package.paystack">
+<span id="pycomms-pay-payment-package-paystack-module"></span><h2>pycomms_pay.payment_package.paystack module<a class="headerlink" href="#module-pycomms_pay.payment_package.paystack" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paystack.Paystack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.paystack.</span></span><span class="sig-name descname"><span class="pre">Paystack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_secret</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paystack.html#Paystack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paystack.Paystack" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the Paystack API for initializing transactions, verifying transactions, and charging
+authorizations.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Attributes:</dt><dd><p>ref (str): The reference ID for the transaction.
+test_secret (str): The secret key for authentication.
+base_url (str): The base URL for the Paystack API.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paystack.Paystack.charge_authorization">
+<span class="sig-name descname"><span class="pre">charge_authorization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">auth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge_auth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth" title="pycomms_pay.payment_package.req_body_paystack.ChargeAuth"><span class="pre">ChargeAuth</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paystack.html#Paystack.charge_authorization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paystack.Paystack.charge_authorization" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to verify a charge authorization and update the access code.</p>
+<p>This method verifies a transaction authorization and retrieves the access code
+associated with it. It uses the provided authorization and charge details to
+perform the verification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>auth</strong> (<em>str</em>) – The authorization reference or token for the charge.</p></li>
+<li><p><strong>charge_auth</strong> (<a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth" title="pycomms_pay.payment_package.req_body_paystack.ChargeAuth"><em>ChargeAuth</em></a>) – An instance of ChargeAuth containing charge details.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If the request fails or the response status code is not 200.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paystack.Paystack.initialize_transaction">
+<span class="sig-name descname"><span class="pre">initialize_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody" title="pycomms_pay.payment_package.req_body_paystack.InitializeBody"><span class="pre">InitializeBody</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paystack.html#Paystack.initialize_transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paystack.Paystack.initialize_transaction" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to initialize a transaction and retrieves the access code.</p>
+<p>This method initializes a transaction using the provided details and retrieves
+an access code for further processing. The access code can be used for redirecting
+the user to the Paystack payment page or for other transaction operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>initial_body</strong> (<a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody" title="pycomms_pay.payment_package.req_body_paystack.InitializeBody"><em>InitializeBody</em></a>) – An instance of InitializeBody containing transaction details.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If the request fails or the response status code is not 201.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.paystack.Paystack.verify_transaction">
+<span class="sig-name descname"><span class="pre">verify_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/paystack.html#Paystack.verify_transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.paystack.Paystack.verify_transaction" title="Link to this definition"></a></dt>
+<dd><p>Sends a request to verify a transaction using the provided reference.</p>
+<p>This method verifies a transaction with the given reference and retrieves
+details about the transaction. If successful, it updates the <cite>access_code</cite>
+with the data from the response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ref</strong> (<em>str</em>) – The reference or token for the transaction to be verified.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If the request fails or the response status code is not 200.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.payment_package.req_body_paypal">
+<span id="pycomms-pay-payment-package-req-body-paypal-module"></span><h2>pycomms_pay.payment_package.req_body_paypal module<a class="headerlink" href="#module-pycomms_pay.payment_package.req_body_paypal" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Amount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">breakdown</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Breakdown" title="pycomms_pay.payment_package.req_body_paypal.Breakdown"><span class="pre">Breakdown</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Amount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Amount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitAmount</span></code></a></p>
+<p>Represents the amount for an order, including optional breakdown details.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>currency_code (str): The currency code.
+value (str or int or float): The monetary value.
+breakdown (Breakdown, optional): The breakdown of amounts.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Amount.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Amount.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Amount.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Amount object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Amount.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Breakdown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Breakdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">insurance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_discount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Breakdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Breakdown" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the breakdown of amounts for an order.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>item_total (UnitAmount, optional): The total amount for items.
+shipping (UnitAmount, optional): The shipping amount.
+handling (UnitAmount, optional): The handling amount.
+tax_total (UnitAmount, optional): The total tax amount.
+insurance (UnitAmount, optional): The insurance amount.
+shipping_discount (UnitAmount, optional): The shipping discount amount.
+discount (UnitAmount, optional): The discount amount.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Breakdown.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Breakdown.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Breakdown.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Breakdown object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Breakdown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Card">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level2" title="pycomms_pay.payment_package.req_body_paypal.Level2"><span class="pre">Level2</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">level_3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Level3" title="pycomms_pay.payment_package.req_body_paypal.Level3"><span class="pre">Level3</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Card" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a payment card with level 2 and level 3 information.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>level_2 (Level2): The level 2 information.
+level_3 (Level3): The level 3 information.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Card.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Card.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Card.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Card object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Card.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.DiscountAmount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">DiscountAmount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#DiscountAmount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.DiscountAmount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the discount amount.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>unit_amount (UnitAmount, optional): The unit amount for the discount.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.DiscountAmount.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#DiscountAmount.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.DiscountAmount.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the DiscountAmount object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the DiscountAmount.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.DutyAmount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">DutyAmount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#DutyAmount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.DutyAmount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the duty amount.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>unit_amount (UnitAmount, optional): The unit amount for duty.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.DutyAmount.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#DutyAmount.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.DutyAmount.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the DutyAmount object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the DutyAmount.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Level2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Level2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">invoice_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Level2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Level2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the level 2 information for an invoice.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>invoice_id (str): The invoice ID.
+tax_total (UnitAmount, optional): The total tax amount.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Level2.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Level2.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Level2.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Level2 object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Level2.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Level3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Level3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ships_from_postal_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.LineItems" title="pycomms_pay.payment_package.req_body_paypal.LineItems"><span class="pre">LineItems</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_add</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount" title="pycomms_pay.payment_package.req_body_paypal.ShippingAmount"><span class="pre">ShippingAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">duty_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DutyAmount" title="pycomms_pay.payment_package.req_body_paypal.DutyAmount"><span class="pre">DutyAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_amt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.DiscountAmount" title="pycomms_pay.payment_package.req_body_paypal.DiscountAmount"><span class="pre">DiscountAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping_amt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount" title="pycomms_pay.payment_package.req_body_paypal.ShippingAmount"><span class="pre">ShippingAmount</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Level3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Level3" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the level 3 information for a transaction.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>ships_from_postal_code (str): The postal code from where the items are shipped.
+line_items (LineItems): The line items in the transaction.
+shipping_add (ShippingAmount): The shipping address information.
+duty_amount (DutyAmount): The duty amount information.
+discount_amt (DiscountAmount): The discount amount information.
+shipping_amt (ShippingAmount): The shipping amount information.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Level3.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Level3.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Level3.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Level3 object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Level3.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.LineItems">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">LineItems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">commodity_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_of_measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discount_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UPC" title="pycomms_pay.payment_package.req_body_paypal.UPC"><span class="pre">UPC</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#LineItems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.LineItems" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.OrderItem" title="pycomms_pay.payment_package.req_body_paypal.OrderItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderItem</span></code></a></p>
+<p>Represents an item in a line of items, inheriting from OrderItem.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>commodity_code (str, optional): The commodity code of the item.
+unit_of_measure (str, optional): The unit of measure of the item.
+tax (UnitAmount, optional): The tax amount for the item.
+discount_amount (UnitAmount, optional): The discount amount for the item.
+total_amount (UnitAmount, optional): The total amount for the item.
+upc (UPC, optional): The UPC of the item.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.LineItems.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#LineItems.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.LineItems.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the LineItems object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the LineItems.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Name">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Name" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a name.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Name.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Name.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Name.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Name object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Options">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TYPE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Options" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents options for shipping.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>id_num (str, optional): The ID of the option.
+label (str, optional): The label of the option.
+selected (bool, optional): Whether the option is selected.
+type (str, optional): The type of the option.
+amount (UnitAmount, optional): The amount for the option.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Options.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Options.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Options.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Options object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Options.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.OrderBody">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">OrderBody</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">purchase_units:</span> <span class="pre">[&lt;class</span> <span class="pre">'pycomms_pay.payment_package.req_body_paypal.PurchaseUnit'&gt;],</span> <span class="pre">intent:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#OrderBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the body of an order.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>purchase_units (list of PurchaseUnit): The list of purchase units.
+intent (str): The intent of the order.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.OrderBody.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#OrderBody.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.OrderBody.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the OrderBody object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the OrderBody.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.OrderItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">OrderItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sku</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UPC" title="pycomms_pay.payment_package.req_body_paypal.UPC"><span class="pre">UPC</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#OrderItem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.OrderItem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents an item in an order.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the item.
+quantity (int): The quantity of the item.
+unit_amount (UnitAmount): The unit amount of the item.
+description (str, optional): The description of the item.
+sku (str, optional): The SKU of the item.
+url (str, optional): The URL of the item.
+category (str, optional): The category of the item.
+image_url (str, optional): The image URL of the item.
+tax (UnitAmount, optional): The tax amount for the item.
+upc (UPC, optional): The UPC of the item.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.OrderItem.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#OrderItem.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.OrderItem.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the OrderItem object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the OrderItem.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Payee">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Payee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merchant_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Payee"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Payee" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a payee.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>email_address (str): The email address of the payee.
+merchant_id (str): The merchant ID of the payee.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Payee.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Payee.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Payee.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Payee object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Payee.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PaymentInstruction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">PaymentInstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">platform_fees</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.PlatformFees" title="pycomms_pay.payment_package.req_body_paypal.PlatformFees"><span class="pre">PlatformFees</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee_pricing_tier_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee_receivable_fx_rate_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disbursement_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PaymentInstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents payment instructions.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>platform_fees (PlatformFees, optional): The platform fees.
+payee_pricing_tier_id (str, optional): The payee pricing tier ID.
+payee_receivable_fx_rate_id (str, optional): The payee receivable FX rate ID.
+disbursement_mode (str, optional): The disbursement mode.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PaymentInstruction.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PaymentInstruction.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the PaymentInstruction object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the PaymentInstruction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PlatformFees">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">PlatformFees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Payee" title="pycomms_pay.payment_package.req_body_paypal.Payee"><span class="pre">Payee</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PlatformFees"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PlatformFees" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents platform fees.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>unit_amount (UnitAmount): The unit amount of the platform fees.
+payee (Payee): The payee of the platform fees.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PlatformFees.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PlatformFees.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PlatformFees.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the PlatformFees object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the PlatformFees.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PurchaseUnit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">PurchaseUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount:</span> <span class="pre">~pycomms_pay.payment_package.req_body_paypal.Amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invoice_id=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">soft_descriptor=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items:</span> <span class="pre">[&lt;class</span> <span class="pre">'pycomms_pay.payment_package.req_body_paypal.OrderItem'&gt;]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee:</span> <span class="pre">~pycomms_pay.payment_package.req_body_paypal.Payee</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payment_instruction:</span> <span class="pre">~pycomms_pay.payment_package.req_body_paypal.PaymentInstruction</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shipping:</span> <span class="pre">~pycomms_pay.payment_package.req_body_paypal.Shipping</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supplementary_data:</span> <span class="pre">~pycomms_pay.payment_package.req_body_paypal.SupplementaryData</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PurchaseUnit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a purchase unit.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>amount (Amount): The amount information.
+reference_id (str, optional): The reference ID.
+description (str, optional): The description of the purchase unit.
+customer_id (str, optional): The customer ID.
+invoice_id (str, optional): The invoice ID.
+soft_descriptor (str, optional): The soft descriptor.
+items (list of OrderItem, optional): The list of items in the purchase unit.
+payee (Payee, optional): The payee information.
+payment_instruction (PaymentInstruction, optional): The payment instruction information.
+shipping (Shipping, optional): The shipping information.
+supplementary_data (SupplementaryData, optional): The supplementary data.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.PurchaseUnit.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#PurchaseUnit.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the PurchaseUnit object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the PurchaseUnit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Shipping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">Shipping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TYPE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Options" title="pycomms_pay.payment_package.req_body_paypal.Options"><span class="pre">Options</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Name" title="pycomms_pay.payment_package.req_body_paypal.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAddress" title="pycomms_pay.payment_package.req_body_paypal.ShippingAddress"><span class="pre">ShippingAddress</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Shipping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Shipping" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents shipping information.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>type (str, optional): The type of shipping.
+options (Options, optional): The shipping options.
+name (Name, optional): The name of the recipient.
+address (ShippingAddress, optional): The shipping address.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.Shipping.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#Shipping.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.Shipping.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Shipping object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the Shipping.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.ShippingAddress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">ShippingAddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address_line_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">address_line_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_area_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_area_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postal_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country_code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#ShippingAddress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAddress" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a shipping address.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>address_line_1 (str): The first line of the address.
+address_line_2 (str): The second line of the address.
+admin_area_2 (str): The city or locality of the address.
+admin_area_1 (str): The state or region of the address.
+postal_code (str): The postal code of the address.
+country_code (str): The country code of the address.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.ShippingAddress.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#ShippingAddress.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAddress.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the ShippingAddress object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the ShippingAddress.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.ShippingAmount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">ShippingAmount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit_amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="pycomms_pay.payment_package.req_body_paypal.UnitAmount"><span class="pre">UnitAmount</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#ShippingAmount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the shipping amount.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>unit_amount (UnitAmount, optional): The unit amount for shipping.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.ShippingAmount.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#ShippingAmount.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.ShippingAmount.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the ShippingAmount object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the ShippingAmount.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.SupplementaryData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">SupplementaryData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paypal.Card" title="pycomms_pay.payment_package.req_body_paypal.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#SupplementaryData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.SupplementaryData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents supplementary data for a transaction.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>card (Card): The card information.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.SupplementaryData.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#SupplementaryData.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.SupplementaryData.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the SupplementaryData object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the SupplementaryData.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.UPC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">UPC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TYPE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#UPC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.UPC" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a Universal Product Code (UPC).</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>type (str): The type of UPC.
+code (str): The UPC code.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.UPC.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#UPC.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.UPC.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the UPC object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the UPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.UnitAmount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">UnitAmount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currency_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#UnitAmount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a monetary amount in a specific currency.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>currency_code (str): The currency code (e.g., ‘USD’).
+value (str): The monetary value.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.UnitAmount.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#UnitAmount.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.UnitAmount.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the UnitAmount object to a JSON-serializable dictionary.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: The JSON-serializable dictionary representation of the UnitAmount.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.json">
+<span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.json" title="Link to this definition"></a></dt>
+<dd><p>Converts an object to its JSON representation if the object is not None.</p>
+<p>Parameters:
+val (object): The object to be converted to JSON.</p>
+<p>Returns:
+object: The JSON representation of the object if it is not None, otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paypal.nonNull">
+<span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paypal.</span></span><span class="sig-name descname"><span class="pre">nonNull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paypal.html#nonNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paypal.nonNull" title="Link to this definition"></a></dt>
+<dd><p>Removes key-value pairs from a dictionary where the value is None.</p>
+<p>Parameters:
+old (dict): The original dictionary containing key-value pairs.</p>
+<p>Returns:
+dict: A new dictionary with all key-value pairs where the value is not None.</p>
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.payment_package.req_body_paystack">
+<span id="pycomms-pay-payment-package-req-body-paystack-module"></span><h2>pycomms_pay.payment_package.req_body_paystack module<a class="headerlink" href="#module-pycomms_pay.payment_package.req_body_paystack" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.ChargeAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">ChargeAuth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorization_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invoice_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subaccount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction_charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bearer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields" title="pycomms_pay.payment_package.req_body_paystack.CustomFields"><span class="pre">CustomFields</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cart_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#ChargeAuth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody" title="pycomms_pay.payment_package.req_body_paystack.InitializeBody"><code class="xref py py-class docutils literal notranslate"><span class="pre">InitializeBody</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.ChargeAuth.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#ChargeAuth.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.ChargeAuth.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the ChargeAuth instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the ChargeAuth instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.CustomFields">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">CustomFields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info1" title="pycomms_pay.payment_package.req_body_paystack.Info1"><span class="pre">Info1</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info2" title="pycomms_pay.payment_package.req_body_paystack.Info2"><span class="pre">Info2</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#CustomFields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.CustomFields.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#CustomFields.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the CustomFields instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the CustomFields instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Info1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">Info1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Info1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Info1" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Info1.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Info1.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Info1.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Info1 instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the Info1 instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Info2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">Info2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Info2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Info2" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Info2.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Info2.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Info2.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Info2 instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the Info2 instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.InitializeBody">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">InitializeBody</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invoice_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Metadata" title="pycomms_pay.payment_package.req_body_paystack.Metadata"><span class="pre">Metadata</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subaccount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transaction_charge</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bearer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#InitializeBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.InitializeBody.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#InitializeBody.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.InitializeBody.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the InitializeBody instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the InitializeBody instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Metadata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">Metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cart_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info1" title="pycomms_pay.payment_package.req_body_paystack.Info1"><span class="pre">Info1</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.Info2" title="pycomms_pay.payment_package.req_body_paystack.Info2"><span class="pre">Info2</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Metadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pycomms_pay.payment_package.req_body_paystack.CustomFields" title="pycomms_pay.payment_package.req_body_paystack.CustomFields"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomFields</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.Metadata.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#Metadata.toJson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.Metadata.toJson" title="Link to this definition"></a></dt>
+<dd><p>Converts the Metadata instance to a JSON-compatible dictionary.</p>
+<p>Returns:
+dict: The JSON representation of the Metadata instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.json">
+<span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.json" title="Link to this definition"></a></dt>
+<dd><p>Converts an object to its JSON representation if the object is not None.</p>
+<p>Parameters:
+val (object): The object to be converted to JSON.</p>
+<p>Returns:
+object: The JSON representation of the object if it is not None, otherwise returns None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.req_body_paystack.nonNull">
+<span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.req_body_paystack.</span></span><span class="sig-name descname"><span class="pre">nonNull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/req_body_paystack.html#nonNull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.req_body_paystack.nonNull" title="Link to this definition"></a></dt>
+<dd><p>Removes key-value pairs from a dictionary where the value is None.</p>
+<p>Parameters:
+old (dict): The original dictionary containing key-value pairs.</p>
+<p>Returns:
+dict: A new dictionary with all key-value pairs where the value is not None.</p>
+</dd></dl>
+
+</section>
+<section id="module-pycomms_pay.payment_package">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pycomms_pay.payment_package" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.Momo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycomms_pay.payment_package.</span></span><span class="sig-name descname"><span class="pre">Momo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscription_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.Momo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to interact with the MTN MoMo API for sending money, checking balance, and verifying transactions.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>api_base_url (str): The base URL for the MoMo API.
+api_key (str): The API key for authentication.
+subscription_key (str): The subscription key for the MoMo API.
+user_id (str): The user ID for authentication.
+session (requests.Session): The requests session for making API calls.
+token (str): The access token for authenticated requests.
+auth (str): The base64 encoded authentication string.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.Momo.get_token">
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.get_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.Momo.get_token" title="Link to this definition"></a></dt>
+<dd><p>Retrieves and sets the access token for authenticated requests.</p>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while fetching the token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.Momo.momobalance">
+<span class="sig-name descname"><span class="pre">momobalance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.momobalance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.Momo.momobalance" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the account balance.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the account balance details.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while fetching the balance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.Momo.transfer_money">
+<span class="sig-name descname"><span class="pre">transfer_money</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payee_note</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payer_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.transfer_money"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.Momo.transfer_money" title="Link to this definition"></a></dt>
+<dd><p>Initiates a money transfer request.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>amount (str): The amount of money to transfer.
+currency (str): The currency of the amount.
+external_id (str): The external ID for the transaction.
+payer (str): The payer’s MSISDN (mobile number).
+payee_note (str): The note for the payee.
+payer_message (str): The message for the payer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the response status code and reference ID.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while initiating the transfer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pycomms_pay.payment_package.Momo.verifymomo">
+<span class="sig-name descname"><span class="pre">verifymomo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pycomms_pay/payment_package/momo.html#Momo.verifymomo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pycomms_pay.payment_package.Momo.verifymomo" title="Link to this definition"></a></dt>
+<dd><p>Verifies the status of a MoMo transaction.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>txn (str): The transaction ID to verify.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the transaction details.</p>
+</dd>
+<dt>Raises:</dt><dd><p>requests.exceptions.RequestException: If an error occurs while verifying the transaction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Shaukat Bint Arhin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

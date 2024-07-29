@@ -12,4 +12,8 @@ pycomms_pay/email_package/gmail.py
 pycomms_pay/email_package/send.py
 pycomms_pay/email_package/trash.py
 pycomms_pay/payment_package/__init__.py
+pycomms_pay/payment_package/config.py
 pycomms_pay/payment_package/momo.py
+pycomms_pay/sms_package/__init__.py
+pycomms_pay/sms_package/config.py
+pycomms_pay/sms_package/sms.py

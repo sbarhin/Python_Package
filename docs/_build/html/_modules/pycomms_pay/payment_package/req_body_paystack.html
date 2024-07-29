@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycomms_pay.payment_package.req_body_paystack &mdash; PyCommsPay 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyCommsPay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyCommsPay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pycomms_pay.payment_package.req_body_paystack</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pycomms_pay.payment_package.req_body_paystack</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="json">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.json">[docs]</a>
+<span></span><span class="k">def</span> <span class="nf">json</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts an object to its JSON representation if the object is not None.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        val (object): The object to be converted to JSON.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        object: The JSON representation of the object if it is not None, otherwise returns None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">toJson</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="nonNull">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.nonNull">[docs]</a>
+<span class="k">def</span> <span class="nf">nonNull</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes key-value pairs from a dictionary where the value is None.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        old (dict): The original dictionary containing key-value pairs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        dict: A new dictionary with all key-value pairs where the value is not None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">old</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+    <span class="k">return</span> <span class="n">new</span></div>
+
+
+
+<div class="viewcode-block" id="Info1">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Info1">[docs]</a>
+<span class="k">class</span> <span class="nc">Info1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_name</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Initializes an Info1 instance.</span>
+
+<span class="sd">                Parameters:</span>
+<span class="sd">                display_name (str): The display name for the info.</span>
+<span class="sd">                variable_name (str): The variable name for the info.</span>
+<span class="sd">                value (str): The value associated with the info.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">display_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable_name</span> <span class="o">=</span> <span class="n">variable_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="Info1.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Info1.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the Info1 instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                dict: The JSON representation of the Info1 instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span><span class="p">,</span>
+            <span class="s1">&#39;variable_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">variable_name</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Info2">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Info2">[docs]</a>
+<span class="k">class</span> <span class="nc">Info2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_name</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                    Initializes an Info2 instance.</span>
+
+<span class="sd">                    Parameters:</span>
+<span class="sd">                    display_name (str): The display name for the info.</span>
+<span class="sd">                    variable_name (str): The variable name for the info.</span>
+<span class="sd">                    value (str): The value associated with the info.</span>
+<span class="sd">                    &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">display_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">variable_name</span> <span class="o">=</span> <span class="n">variable_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="Info2.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Info2.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the Info2 instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                dict: The JSON representation of the Info2 instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span><span class="p">,</span>
+            <span class="s1">&#39;variable_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">variable_name</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CustomFields">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.CustomFields">[docs]</a>
+<span class="k">class</span> <span class="nc">CustomFields</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info_1</span><span class="p">:</span> <span class="n">Info1</span><span class="p">,</span> <span class="n">info_2</span><span class="p">:</span> <span class="n">Info2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Initializes a CustomFields instance.</span>
+
+<span class="sd">                Parameters:</span>
+<span class="sd">                info_1 (Info1): An Info1 instance.</span>
+<span class="sd">                info_2 (Info2): An Info2 instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_1</span> <span class="o">=</span> <span class="n">info_1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_2</span> <span class="o">=</span> <span class="n">info_2</span>
+
+<div class="viewcode-block" id="CustomFields.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.CustomFields.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the CustomFields instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                dict: The JSON representation of the CustomFields instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;info1&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info_1</span><span class="p">),</span>
+                <span class="s1">&#39;info2&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info_2</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Metadata">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Metadata">[docs]</a>
+<span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="n">CustomFields</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cart_id</span><span class="p">,</span> <span class="n">custom_fields</span><span class="p">,</span> <span class="n">info_1</span><span class="p">:</span> <span class="n">Info1</span><span class="p">,</span> <span class="n">info_2</span><span class="p">:</span> <span class="n">Info2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Initializes a Metadata instance.</span>
+
+<span class="sd">                Parameters:</span>
+<span class="sd">                cart_id (str): The cart ID.</span>
+<span class="sd">                custom_fields (CustomFields): An instance of CustomFields.</span>
+<span class="sd">                info_1 (Info1): An Info1 instance.</span>
+<span class="sd">                info_2 (Info2): An Info2 instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">info_1</span><span class="p">,</span> <span class="n">info_2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cart_id</span> <span class="o">=</span> <span class="n">cart_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_fields</span> <span class="o">=</span> <span class="n">custom_fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_1</span> <span class="o">=</span> <span class="n">info_1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_2</span> <span class="o">=</span> <span class="n">info_2</span>
+
+<div class="viewcode-block" id="Metadata.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.Metadata.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the Metadata instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                dict: The JSON representation of the Metadata instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;cart_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cart_id</span><span class="p">,</span>
+            <span class="s1">&#39;custom_fields&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">json</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_fields</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">custom_fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;info_1&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_1</span><span class="o">.</span><span class="n">toJson</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_1</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;info_2&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_2</span><span class="o">.</span><span class="n">toJson</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_2</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="InitializeBody">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.InitializeBody">[docs]</a>
+<span class="k">class</span> <span class="nc">InitializeBody</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">currency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">invoice_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">Metadata</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subaccount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">transaction_charge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bearer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">               Initializes an InitializeBody instance.</span>
+
+<span class="sd">               Parameters:</span>
+<span class="sd">               currency (str): The currency code (e.g., &#39;USD&#39;).</span>
+<span class="sd">               reference (str): The transaction reference.</span>
+<span class="sd">               callback_url (str): The URL to call back after the transaction.</span>
+<span class="sd">               plan (str): The plan identifier.</span>
+<span class="sd">               invoice_limit (int): The invoice limit.</span>
+<span class="sd">               metadata (Metadata): An instance of Metadata.</span>
+<span class="sd">               channels (list of str): A list of payment channels.</span>
+<span class="sd">               split_code (str): The split code for transaction splitting.</span>
+<span class="sd">               subaccount (str): The subaccount identifier.</span>
+<span class="sd">               transaction_charge (int): The transaction charge amount.</span>
+<span class="sd">               bearer (str): The bearer token for authentication.</span>
+<span class="sd">               email (str, optional): The user&#39;s email address.</span>
+<span class="sd">               amount (int, optional): The transaction amount.</span>
+<span class="sd">               &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currency</span> <span class="o">=</span> <span class="n">currency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reference</span> <span class="o">=</span> <span class="n">reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback_url</span> <span class="o">=</span> <span class="n">callback_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">plan</span> <span class="o">=</span> <span class="n">plan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoice_limit</span> <span class="o">=</span> <span class="n">invoice_limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split_code</span> <span class="o">=</span> <span class="n">split_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subaccount</span> <span class="o">=</span> <span class="n">subaccount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transaction_charge</span> <span class="o">=</span> <span class="n">transaction_charge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bearer</span> <span class="o">=</span> <span class="n">bearer</span>
+
+<div class="viewcode-block" id="InitializeBody.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.InitializeBody.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">               Converts the InitializeBody instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">               Returns:</span>
+<span class="sd">               dict: The JSON representation of the InitializeBody instance.</span>
+<span class="sd">               &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">),</span>
+            <span class="s1">&#39;currency&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">currency</span><span class="p">,</span>
+            <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reference</span><span class="p">,</span>
+            <span class="s1">&#39;callback_url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_url</span><span class="p">,</span>
+            <span class="s1">&#39;plan&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan</span><span class="p">,</span>
+            <span class="s1">&#39;invoice_limit&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoice_limit</span><span class="p">,</span>
+            <span class="s1">&#39;metadata&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">),</span>
+            <span class="s1">&#39;channels&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+            <span class="s1">&#39;auth_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_code</span><span class="p">,</span>
+            <span class="s1">&#39;subaccount&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">subaccount</span><span class="p">,</span>
+            <span class="s1">&#39;transaction_charge&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">transaction_charge</span><span class="p">,</span>
+            <span class="s1">&#39;bearer&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bearer</span>
+
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ChargeAuth">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.ChargeAuth">[docs]</a>
+<span class="k">class</span> <span class="nc">ChargeAuth</span><span class="p">(</span><span class="n">InitializeBody</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">authorization_code</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">currency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">invoice_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subaccount</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transaction_charge</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bearer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">custom_fields</span><span class="p">:</span> <span class="n">CustomFields</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">cart_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span>
+                 <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">               Initializes a ChargeAuth instance.</span>
+
+<span class="sd">               Parameters:</span>
+<span class="sd">               currency (str): The currency code (e.g., &#39;USD&#39;).</span>
+<span class="sd">               reference (str): The transaction reference.</span>
+<span class="sd">               callback_url (str): The URL to call back after the transaction.</span>
+<span class="sd">               invoice_limit (int): The invoice limit.</span>
+<span class="sd">               channels (list of str): A list of payment channels.</span>
+<span class="sd">               split_code (str): The split code for transaction splitting.</span>
+<span class="sd">               subaccount (str): The subaccount identifier.</span>
+<span class="sd">               transaction_charge (int): The transaction charge amount.</span>
+<span class="sd">               bearer (str): The bearer token for authentication.</span>
+<span class="sd">               custom_fields (CustomFields): An instance of CustomFields.</span>
+<span class="sd">               cart_id (str): The cart ID.</span>
+<span class="sd">               queue (str): The queue identifier.</span>
+<span class="sd">               authorization_code (str, optional): The authorization code for the transaction.</span>
+<span class="sd">               email (str, optional): The user&#39;s email address.</span>
+<span class="sd">               amount (int, optional): The transaction amount.</span>
+<span class="sd">               &quot;&quot;&quot;</span>
+        <span class="c1"># custom_fields = CustomFields(info1, info2) if custom_fields else None</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">currency</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">callback_url</span><span class="p">,</span> <span class="n">invoice_limit</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span>
+                         <span class="n">split_code</span><span class="p">,</span> <span class="n">subaccount</span><span class="p">,</span> <span class="n">transaction_charge</span><span class="p">,</span> <span class="n">bearer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currency</span> <span class="o">=</span> <span class="n">currency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reference</span> <span class="o">=</span> <span class="n">reference</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback_url</span> <span class="o">=</span> <span class="n">callback_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoice_limit</span> <span class="o">=</span> <span class="n">invoice_limit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split_code</span> <span class="o">=</span> <span class="n">split_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subaccount</span> <span class="o">=</span> <span class="n">subaccount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transaction_charge</span> <span class="o">=</span> <span class="n">transaction_charge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bearer</span> <span class="o">=</span> <span class="n">bearer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authorization_code</span> <span class="o">=</span> <span class="n">authorization_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cart_id</span> <span class="o">=</span> <span class="n">cart_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_fields</span> <span class="o">=</span> <span class="n">custom_fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span>
+
+<div class="viewcode-block" id="ChargeAuth.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paystack.ChargeAuth.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the ChargeAuth instance to a JSON-compatible dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                dict: The JSON representation of the ChargeAuth instance.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">),</span>
+            <span class="s1">&#39;currency&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">currency</span><span class="p">,</span>
+            <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reference</span><span class="p">,</span>
+            <span class="s1">&#39;callback_url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_url</span><span class="p">,</span>
+            <span class="s1">&#39;plan&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">plan</span><span class="p">,</span>
+            <span class="s1">&#39;invoice_limit&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invoice_limit</span><span class="p">),</span>
+            <span class="s1">&#39;channels&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">channels</span><span class="p">,</span>
+            <span class="s1">&#39;auth_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_code</span><span class="p">,</span>
+            <span class="s1">&#39;subaccount&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">subaccount</span><span class="p">,</span>
+            <span class="s1">&#39;transaction_charge&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transaction_charge</span><span class="p">),</span>
+            <span class="s1">&#39;bearer&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bearer</span><span class="p">,</span>
+            <span class="s1">&#39;authorization&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">authorization_code</span><span class="p">,</span>
+            <span class="s1">&#39;cart_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cart_id</span><span class="p">,</span>
+            <span class="s1">&#39;custom_fields&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_fields</span><span class="p">),</span>
+            <span class="s1">&#39;queue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
+
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">info1</span> <span class="o">=</span> <span class="n">Info1</span><span class="p">(</span><span class="s1">&#39;Display Name 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Variable Name 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Value 1&#39;</span><span class="p">)</span>
+    <span class="n">info2</span> <span class="o">=</span> <span class="n">Info2</span><span class="p">(</span><span class="s1">&#39;Display Name 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Variable Name 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Value 2&#39;</span><span class="p">)</span>
+    <span class="n">custom1_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">Info1</span><span class="p">(</span><span class="s1">&#39;Custom Field 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Variable 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Value 1&#39;</span><span class="p">),</span>
+                      <span class="n">Info2</span><span class="p">(</span><span class="s1">&#39;Custom Field 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Variable 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Value 2&#39;</span><span class="p">)]</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">(</span><span class="s1">&#39;Cart123&#39;</span><span class="p">,</span> <span class="n">custom1_fields</span><span class="p">,</span> <span class="n">info1</span><span class="p">,</span> <span class="n">info2</span><span class="p">)</span>
+    <span class="n">custom_fields</span> <span class="o">=</span> <span class="n">CustomFields</span><span class="p">(</span><span class="n">info1</span><span class="p">,</span> <span class="n">info2</span><span class="p">)</span>
+
+    <span class="n">charge_auth</span> <span class="o">=</span> <span class="n">ChargeAuth</span><span class="p">(</span>
+        <span class="n">currency</span><span class="o">=</span><span class="s1">&#39;USD&#39;</span><span class="p">,</span>
+        <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;REF123&#39;</span><span class="p">,</span>
+        <span class="n">callback_url</span><span class="o">=</span><span class="s1">&#39;https://example.com/callback&#39;</span><span class="p">,</span>
+        <span class="n">invoice_limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="s1">&#39;bank&#39;</span><span class="p">],</span>
+        <span class="n">split_code</span><span class="o">=</span><span class="s1">&#39;SPLIT123&#39;</span><span class="p">,</span>
+        <span class="n">subaccount</span><span class="o">=</span><span class="s1">&#39;SUB123&#39;</span><span class="p">,</span>
+        <span class="n">transaction_charge</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">bearer</span><span class="o">=</span><span class="s1">&#39;bearer&#39;</span><span class="p">,</span>
+        <span class="n">authorization_code</span><span class="o">=</span><span class="s1">&#39;AUTH123&#39;</span><span class="p">,</span>
+        <span class="n">email</span><span class="o">=</span><span class="s1">&#39;user@example.com&#39;</span><span class="p">,</span>
+        <span class="n">amount</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+        <span class="n">cart_id</span><span class="o">=</span><span class="s1">&#39;Cart123&#39;</span><span class="p">,</span>
+        <span class="n">custom_fields</span><span class="o">=</span><span class="n">custom_fields</span><span class="p">,</span>
+        <span class="n">queue</span><span class="o">=</span><span class="s1">&#39;Queue123&#39;</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">charge_auth</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+
+    <span class="n">initial_body</span> <span class="o">=</span> <span class="n">InitializeBody</span><span class="p">(</span>
+        <span class="n">currency</span><span class="o">=</span><span class="s1">&#39;USD&#39;</span><span class="p">,</span>
+        <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;REF123&#39;</span><span class="p">,</span>
+        <span class="n">callback_url</span><span class="o">=</span><span class="s1">&#39;https://example.com/callback&#39;</span><span class="p">,</span>
+        <span class="n">plan</span><span class="o">=</span><span class="s1">&#39;PLAN123&#39;</span><span class="p">,</span>
+        <span class="n">invoice_limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+        <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="s1">&#39;bank&#39;</span><span class="p">],</span>
+        <span class="n">split_code</span><span class="o">=</span><span class="s1">&#39;SPLIT123&#39;</span><span class="p">,</span>
+        <span class="n">subaccount</span><span class="o">=</span><span class="s1">&#39;SUB123&#39;</span><span class="p">,</span>
+        <span class="n">transaction_charge</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">bearer</span><span class="o">=</span><span class="s1">&#39;bearer&#39;</span><span class="p">,</span>
+        <span class="n">email</span><span class="o">=</span><span class="s1">&#39;user@example.com&#39;</span><span class="p">,</span>
+        <span class="n">amount</span><span class="o">=</span><span class="mi">5000</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">initial_body</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Shaukat Bint Arhin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

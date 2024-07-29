@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycomms_pay.payment_package.req_body_paypal &mdash; PyCommsPay 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyCommsPay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyCommsPay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pycomms_pay.payment_package.req_body_paypal</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pycomms_pay.payment_package.req_body_paypal</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="json">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.json">[docs]</a>
+<span></span><span class="k">def</span> <span class="nf">json</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Converts an object to its JSON representation if the object is not None.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        val (object): The object to be converted to JSON.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        object: The JSON representation of the object if it is not None, otherwise returns None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">toJson</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="nonNull">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.nonNull">[docs]</a>
+<span class="k">def</span> <span class="nf">nonNull</span><span class="p">(</span><span class="n">old</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes key-value pairs from a dictionary where the value is None.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        old (dict): The original dictionary containing key-value pairs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        dict: A new dictionary with all key-value pairs where the value is not None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="n">new</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">old</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+    <span class="k">return</span> <span class="n">new</span></div>
+
+
+
+<span class="c1"># UNIT AMOUNT</span>
+
+<div class="viewcode-block" id="UnitAmount">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.UnitAmount">[docs]</a>
+<span class="k">class</span> <span class="nc">UnitAmount</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Represents a monetary amount in a specific currency.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            currency_code (str): The currency code (e.g., &#39;USD&#39;).</span>
+<span class="sd">            value (str): The monetary value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currency_code</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the UnitAmount object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           currency_code (str): The currency code.</span>
+<span class="sd">                           value (str or int or float): The monetary value.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currency_code</span> <span class="o">=</span> <span class="n">currency_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<div class="viewcode-block" id="UnitAmount.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.UnitAmount.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the UnitAmount object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the UnitAmount.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;currency_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">currency_code</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="UPC">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.UPC">[docs]</a>
+<span class="k">class</span> <span class="nc">UPC</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents a Universal Product Code (UPC).</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               type (str): The type of UPC.</span>
+<span class="sd">               code (str): The UPC code.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">TYPE</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the UPC object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            TYPE (str, optional): The type of UPC.</span>
+<span class="sd">                            code (str, optional): The UPC code.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">TYPE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+
+<div class="viewcode-block" id="UPC.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.UPC.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the UPC object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the UPC.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+            <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">,</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># ITEM</span>
+<div class="viewcode-block" id="OrderItem">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.OrderItem">[docs]</a>
+<span class="k">class</span> <span class="nc">OrderItem</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents an item in an order.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                name (str): The name of the item.</span>
+<span class="sd">                quantity (int): The quantity of the item.</span>
+<span class="sd">                unit_amount (UnitAmount): The unit amount of the item.</span>
+<span class="sd">                description (str, optional): The description of the item.</span>
+<span class="sd">                sku (str, optional): The SKU of the item.</span>
+<span class="sd">                url (str, optional): The URL of the item.</span>
+<span class="sd">                category (str, optional): The category of the item.</span>
+<span class="sd">                image_url (str, optional): The image URL of the item.</span>
+<span class="sd">                tax (UnitAmount, optional): The tax amount for the item.</span>
+<span class="sd">                upc (UPC, optional): The UPC of the item.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sku</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">image_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tax</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">upc</span><span class="p">:</span> <span class="n">UPC</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the OrderItem object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           name (str): The name of the item.</span>
+<span class="sd">                           quantity (int): The quantity of the item.</span>
+<span class="sd">                           unit_amount (UnitAmount): The unit amount of the item.</span>
+<span class="sd">                           description (str, optional): The description of the item.</span>
+<span class="sd">                           sku (str, optional): The SKU of the item.</span>
+<span class="sd">                           url (str, optional): The URL of the item.</span>
+<span class="sd">                           category (str, optional): The category of the item.</span>
+<span class="sd">                           image_url (str, optional): The image URL of the item.</span>
+<span class="sd">                           tax (UnitAmount, optional): The tax amount for the item.</span>
+<span class="sd">                           upc (UPC, optional): The UPC of the item.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">quantity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span> <span class="o">=</span> <span class="n">unit_amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sku</span> <span class="o">=</span> <span class="n">sku</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_url</span> <span class="o">=</span> <span class="n">image_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tax</span> <span class="o">=</span> <span class="n">tax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upc</span> <span class="o">=</span> <span class="n">upc</span>
+
+<div class="viewcode-block" id="OrderItem.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.OrderItem.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the OrderItem object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the OrderItem.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+            <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">,</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">),</span>
+            <span class="s1">&#39;sku&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sku</span><span class="p">,</span>
+            <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+            <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="p">,</span>
+            <span class="s1">&#39;image_url&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_url</span><span class="p">,</span>
+            <span class="s1">&#39;tax&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tax</span><span class="p">),</span>
+            <span class="s1">&#39;upc&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upc</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># BREAKDOWN</span>
+<div class="viewcode-block" id="Breakdown">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Breakdown">[docs]</a>
+<span class="k">class</span> <span class="nc">Breakdown</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents the breakdown of amounts for an order.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               item_total (UnitAmount, optional): The total amount for items.</span>
+<span class="sd">               shipping (UnitAmount, optional): The shipping amount.</span>
+<span class="sd">               handling (UnitAmount, optional): The handling amount.</span>
+<span class="sd">               tax_total (UnitAmount, optional): The total tax amount.</span>
+<span class="sd">               insurance (UnitAmount, optional): The insurance amount.</span>
+<span class="sd">               shipping_discount (UnitAmount, optional): The shipping discount amount.</span>
+<span class="sd">               discount (UnitAmount, optional): The discount amount.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_total</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">shipping</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">handling</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tax_total</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">insurance</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">shipping_discount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">discount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the Breakdown object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           item_total (UnitAmount, optional): The total amount for items.</span>
+<span class="sd">                           shipping (UnitAmount, optional): The shipping amount.</span>
+<span class="sd">                           handling (UnitAmount, optional): The handling amount.</span>
+<span class="sd">                           tax_total (UnitAmount, optional): The total tax amount.</span>
+<span class="sd">                           insurance (UnitAmount, optional): The insurance amount.</span>
+<span class="sd">                           shipping_discount (UnitAmount, optional): The shipping discount amount.</span>
+<span class="sd">                           discount (UnitAmount, optional): The discount amount.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_total</span> <span class="o">=</span> <span class="n">item_total</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shipping</span> <span class="o">=</span> <span class="n">shipping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handling</span> <span class="o">=</span> <span class="n">handling</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tax_total</span> <span class="o">=</span> <span class="n">tax_total</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insurance</span> <span class="o">=</span> <span class="n">insurance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shipping_discount</span> <span class="o">=</span> <span class="n">shipping_discount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">discount</span> <span class="o">=</span> <span class="n">discount</span>
+
+<div class="viewcode-block" id="Breakdown.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Breakdown.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Breakdown object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Breakdown.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;item_total&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_total</span><span class="p">),</span>
+            <span class="s1">&#39;shipping&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shipping</span><span class="p">),</span>
+            <span class="s1">&#39;handling&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handling</span><span class="p">),</span>
+            <span class="s1">&#39;tax_total&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tax_total</span><span class="p">),</span>
+            <span class="s1">&#39;insurance&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">insurance</span><span class="p">),</span>
+            <span class="s1">&#39;shipping_discount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shipping_discount</span><span class="p">),</span>
+            <span class="s1">&#39;discount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">discount</span><span class="p">),</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># AMOUNT</span>
+
+
+<div class="viewcode-block" id="Amount">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Amount">[docs]</a>
+<span class="k">class</span> <span class="nc">Amount</span><span class="p">(</span><span class="n">UnitAmount</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents the amount for an order, including optional breakdown details.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               currency_code (str): The currency code.</span>
+<span class="sd">               value (str or int or float): The monetary value.</span>
+<span class="sd">               breakdown (Breakdown, optional): The breakdown of amounts.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currency_code</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">breakdown</span><span class="p">:</span> <span class="n">Breakdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the Amount object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           currency_code (str): The currency code.</span>
+<span class="sd">                           value (str or int or float): The monetary value.</span>
+<span class="sd">                           breakdown (Breakdown, optional): The breakdown of amounts.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">currency_code</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currency_code</span> <span class="o">=</span> <span class="n">currency_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breakdown</span> <span class="o">=</span> <span class="n">breakdown</span>
+
+<div class="viewcode-block" id="Amount.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Amount.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Converts the Amount object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                       Returns:</span>
+<span class="sd">                           dict: The JSON-serializable dictionary representation of the Amount.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;currency_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">currency_code</span><span class="p">,</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">),</span>
+            <span class="s1">&#39;breakdown&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">breakdown</span><span class="p">),</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Level2">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Level2">[docs]</a>
+<span class="k">class</span> <span class="nc">Level2</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents the level 2 information for an invoice.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                invoice_id (str): The invoice ID.</span>
+<span class="sd">                tax_total (UnitAmount, optional): The total tax amount.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">invoice_id</span><span class="p">,</span> <span class="n">tax_total</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the Level2 object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            invoice_id (str): The invoice ID.</span>
+<span class="sd">                            tax_total (UnitAmount, optional): The total tax amount.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoice_id</span> <span class="o">=</span> <span class="n">invoice_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tax_total</span> <span class="o">=</span> <span class="n">tax_total</span>
+
+<div class="viewcode-block" id="Level2.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Level2.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Level2 object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Level2.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;invoice_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoice_id</span><span class="p">,</span>
+            <span class="s1">&#39;tax_total&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tax_total</span><span class="p">),</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># LINE ITEMS</span>
+
+<div class="viewcode-block" id="LineItems">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.LineItems">[docs]</a>
+<span class="k">class</span> <span class="nc">LineItems</span><span class="p">(</span><span class="n">OrderItem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents an item in a line of items, inheriting from OrderItem.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                commodity_code (str, optional): The commodity code of the item.</span>
+<span class="sd">                unit_of_measure (str, optional): The unit of measure of the item.</span>
+<span class="sd">                tax (UnitAmount, optional): The tax amount for the item.</span>
+<span class="sd">                discount_amount (UnitAmount, optional): The discount amount for the item.</span>
+<span class="sd">                total_amount (UnitAmount, optional): The total amount for the item.</span>
+<span class="sd">                upc (UPC, optional): The UPC of the item.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span><span class="p">,</span> <span class="n">commodity_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unit_of_measure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tax</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">discount_amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">total_amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">upc</span><span class="p">:</span> <span class="n">UPC</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the LineItems object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           name (str): The name of the item.</span>
+<span class="sd">                           quantity (int): The quantity of the item.</span>
+<span class="sd">                           unit_amount (UnitAmount): The unit amount of the item.</span>
+<span class="sd">                           commodity_code (str, optional): The commodity code of the item.</span>
+<span class="sd">                           unit_of_measure (str, optional): The unit of measure of the item.</span>
+<span class="sd">                           tax (UnitAmount, optional): The tax amount for the item.</span>
+<span class="sd">                           discount_amount (UnitAmount, optional): The discount amount for the item.</span>
+<span class="sd">                           total_amount (UnitAmount, optional): The total amount for the item.</span>
+<span class="sd">                           upc (UPC, optional): The UPC of the item.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">commodity_code</span> <span class="o">=</span> <span class="n">commodity_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tax</span> <span class="o">=</span> <span class="n">tax</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_of_measure</span> <span class="o">=</span> <span class="n">unit_of_measure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">discount_amount</span> <span class="o">=</span> <span class="n">discount_amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_amount</span> <span class="o">=</span> <span class="n">total_amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upc</span> <span class="o">=</span> <span class="n">upc</span>
+
+<div class="viewcode-block" id="LineItems.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.LineItems.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Converts the LineItems object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                       Returns:</span>
+<span class="sd">                           dict: The JSON-serializable dictionary representation of the LineItems.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">),</span>
+            <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">,</span>
+            <span class="s1">&#39;commodity_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">commodity_code</span><span class="p">,</span>
+            <span class="s1">&#39;tax&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tax</span><span class="p">),</span>
+            <span class="s1">&#39;unit_of_measure&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_of_measure</span><span class="p">,</span>
+            <span class="s1">&#39;discount_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">discount_amount</span><span class="p">),</span>
+            <span class="s1">&#39;total_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_amount</span><span class="p">),</span>
+            <span class="s1">&#39;upc&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upc</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ShippingAmount">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.ShippingAmount">[docs]</a>
+<span class="k">class</span> <span class="nc">ShippingAmount</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents the shipping amount.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                unit_amount (UnitAmount, optional): The unit amount for shipping.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the ShippingAmount object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            unit_amount (UnitAmount, optional): The unit amount for shipping.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span> <span class="o">=</span> <span class="n">unit_amount</span>
+
+<div class="viewcode-block" id="ShippingAmount.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.ShippingAmount.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the ShippingAmount object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the ShippingAmount.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># DUTY_AMOUNT</span>
+
+<div class="viewcode-block" id="DutyAmount">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.DutyAmount">[docs]</a>
+<span class="k">class</span> <span class="nc">DutyAmount</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents the duty amount.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               unit_amount (UnitAmount, optional): The unit amount for duty.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the DutyAmount object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           unit_amount (UnitAmount, optional): The unit amount for duty.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span> <span class="o">=</span> <span class="n">unit_amount</span>
+
+<div class="viewcode-block" id="DutyAmount.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.DutyAmount.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Converts the DutyAmount object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                Returns:</span>
+<span class="sd">                    dict: The JSON-serializable dictionary representation of the DutyAmount.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DiscountAmount">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.DiscountAmount">[docs]</a>
+<span class="k">class</span> <span class="nc">DiscountAmount</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents the discount amount.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                unit_amount (UnitAmount, optional): The unit amount for the discount.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the DiscountAmount object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           unit_amount (UnitAmount, optional): The unit amount for the discount.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span> <span class="o">=</span> <span class="n">unit_amount</span>
+
+<div class="viewcode-block" id="DiscountAmount.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.DiscountAmount.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the DiscountAmount object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the DiscountAmount.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># SHIPPING ADDRESS</span>
+
+<div class="viewcode-block" id="ShippingAddress">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.ShippingAddress">[docs]</a>
+<span class="k">class</span> <span class="nc">ShippingAddress</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents a shipping address.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               address_line_1 (str): The first line of the address.</span>
+<span class="sd">               address_line_2 (str): The second line of the address.</span>
+<span class="sd">               admin_area_2 (str): The city or locality of the address.</span>
+<span class="sd">               admin_area_1 (str): The state or region of the address.</span>
+<span class="sd">               postal_code (str): The postal code of the address.</span>
+<span class="sd">               country_code (str): The country code of the address.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address_line_1</span><span class="p">,</span> <span class="n">address_line_2</span><span class="p">,</span> <span class="n">admin_area_2</span><span class="p">,</span> <span class="n">admin_area_1</span><span class="p">,</span>
+                 <span class="n">postal_code</span><span class="p">,</span> <span class="n">country_code</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the ShippingAddress object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           address_line_1 (str): The first line of the address.</span>
+<span class="sd">                           address_line_2 (str): The second line of the address.</span>
+<span class="sd">                           admin_area_2 (str): The city or locality of the address.</span>
+<span class="sd">                           admin_area_1 (str): The state or region of the address.</span>
+<span class="sd">                           postal_code (str): The postal code of the address.</span>
+<span class="sd">                           country_code (str): The country code of the address.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_line_1</span> <span class="o">=</span> <span class="n">address_line_1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="o">=</span> <span class="n">address_line_2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">admin_area_2</span> <span class="o">=</span> <span class="n">admin_area_2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">admin_area_1</span> <span class="o">=</span> <span class="n">admin_area_1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">postal_code</span> <span class="o">=</span> <span class="n">postal_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country_code</span> <span class="o">=</span> <span class="n">country_code</span>
+
+<div class="viewcode-block" id="ShippingAddress.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.ShippingAddress.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Converts the ShippingAddress object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                       Returns:</span>
+<span class="sd">                           dict: The JSON-serializable dictionary representation of the ShippingAddress.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;address_line_1&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_line_1</span><span class="p">,</span>
+            <span class="s1">&#39;address_line_2&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span><span class="p">,</span>
+            <span class="s1">&#39;admin_area_2&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_area_2</span><span class="p">,</span>
+            <span class="s1">&#39;admin_area_1&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">admin_area_1</span><span class="p">,</span>
+            <span class="s1">&#39;postal_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">postal_code</span><span class="p">,</span>
+            <span class="s1">&#39;country_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">country_code</span>
+
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># LEVEL_3</span>
+<div class="viewcode-block" id="Level3">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Level3">[docs]</a>
+<span class="k">class</span> <span class="nc">Level3</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents the level 3 information for a transaction.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                ships_from_postal_code (str): The postal code from where the items are shipped.</span>
+<span class="sd">                line_items (LineItems): The line items in the transaction.</span>
+<span class="sd">                shipping_add (ShippingAmount): The shipping address information.</span>
+<span class="sd">                duty_amount (DutyAmount): The duty amount information.</span>
+<span class="sd">                discount_amt (DiscountAmount): The discount amount information.</span>
+<span class="sd">                shipping_amt (ShippingAmount): The shipping amount information.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ships_from_postal_code</span><span class="p">,</span> <span class="n">line_items</span><span class="p">:</span> <span class="n">LineItems</span><span class="p">,</span> <span class="n">shipping_add</span><span class="p">:</span> <span class="n">ShippingAmount</span><span class="p">,</span>
+                 <span class="n">duty_amount</span><span class="p">:</span> <span class="n">DutyAmount</span><span class="p">,</span> <span class="n">discount_amt</span><span class="p">:</span> <span class="n">DiscountAmount</span><span class="p">,</span> <span class="n">shipping_amt</span><span class="p">:</span> <span class="n">ShippingAmount</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the Level3 object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            ships_from_postal_code (str): The postal code from where the items are shipped.</span>
+<span class="sd">                            line_items (LineItems): The line items in the transaction.</span>
+<span class="sd">                            shipping_add (ShippingAmount): The shipping address information.</span>
+<span class="sd">                            duty_amount (DutyAmount): The duty amount information.</span>
+<span class="sd">                            discount_amt (DiscountAmount): The discount amount information.</span>
+<span class="sd">                            shipping_amt (ShippingAmount): The shipping amount information.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ships_from_postal_code</span> <span class="o">=</span> <span class="n">ships_from_postal_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_items</span> <span class="o">=</span> <span class="n">line_items</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shipping_add</span> <span class="o">=</span> <span class="n">shipping_add</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shipping_amt</span> <span class="o">=</span> <span class="n">shipping_amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">discount_amt</span> <span class="o">=</span> <span class="n">discount_amt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">duty_amt</span> <span class="o">=</span> <span class="n">duty_amount</span>
+
+<div class="viewcode-block" id="Level3.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Level3.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Level3 object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Level3.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;ships_from_postal_code&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ships_from_postal_code</span><span class="p">,</span>
+            <span class="s1">&#39;line_items&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_items</span><span class="p">,</span>
+            <span class="s1">&#39;shipping_add&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shipping_add</span><span class="p">,</span>
+            <span class="s1">&#39;shipping_amt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">shipping_amt</span><span class="p">,</span>
+            <span class="s1">&#39;discount_amt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">discount_amt</span><span class="p">,</span>
+            <span class="s1">&#39;duty_amt&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">duty_amt</span><span class="p">,</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Card">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Card">[docs]</a>
+<span class="k">class</span> <span class="nc">Card</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents a payment card with level 2 and level 3 information.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               level_2 (Level2): The level 2 information.</span>
+<span class="sd">               level_3 (Level3): The level 3 information.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level_2</span><span class="p">:</span> <span class="n">Level2</span><span class="p">,</span> <span class="n">level_3</span><span class="p">:</span> <span class="n">Level3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the Card object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           level_2 (Level2): The level 2 information.</span>
+<span class="sd">                           level_3 (Level3): The level 3 information.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level_2</span> <span class="o">=</span> <span class="n">level_2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level_3</span> <span class="o">=</span> <span class="n">level_3</span>
+
+<div class="viewcode-block" id="Card.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Card.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Card object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Card.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;level_2&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">level_2</span><span class="p">),</span>
+            <span class="s1">&#39;level_3&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">level_3</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># PAYEE</span>
+
+<div class="viewcode-block" id="Payee">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Payee">[docs]</a>
+<span class="k">class</span> <span class="nc">Payee</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents a payee.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               email_address (str): The email address of the payee.</span>
+<span class="sd">               merchant_id (str): The merchant ID of the payee.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email_address</span><span class="p">,</span> <span class="n">merchant_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the Payee object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            email_address (str): The email address of the payee.</span>
+<span class="sd">                            merchant_id (str): The merchant ID of the payee.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email_address</span> <span class="o">=</span> <span class="n">email_address</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merchant_id</span> <span class="o">=</span> <span class="n">merchant_id</span>
+
+<div class="viewcode-block" id="Payee.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Payee.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Payee object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Payee.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s2">&quot;email_address&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email_address</span><span class="p">,</span>
+            <span class="s2">&quot;merchant_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">merchant_id</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PlatformFees">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PlatformFees">[docs]</a>
+<span class="k">class</span> <span class="nc">PlatformFees</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents platform fees.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                unit_amount (UnitAmount): The unit amount of the platform fees.</span>
+<span class="sd">                payee (Payee): The payee of the platform fees.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">unit_amount</span><span class="p">:</span> <span class="n">UnitAmount</span><span class="p">,</span> <span class="n">payee</span><span class="p">:</span> <span class="n">Payee</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                    Initializes the PlatformFees object.</span>
+
+<span class="sd">                    Args:</span>
+<span class="sd">                        unit_amount (UnitAmount): The unit amount of the platform fees.</span>
+<span class="sd">                        payee (Payee): The payee of the platform fees.</span>
+<span class="sd">                    &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span> <span class="o">=</span> <span class="n">unit_amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payee</span> <span class="o">=</span> <span class="n">payee</span>
+
+<div class="viewcode-block" id="PlatformFees.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PlatformFees.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the PlatformFees object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the PlatformFees.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;unit_amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unit_amount</span><span class="p">),</span>
+            <span class="s1">&#39;payee&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">payee</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PaymentInstruction">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction">[docs]</a>
+<span class="k">class</span> <span class="nc">PaymentInstruction</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents payment instructions.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               platform_fees (PlatformFees, optional): The platform fees.</span>
+<span class="sd">               payee_pricing_tier_id (str, optional): The payee pricing tier ID.</span>
+<span class="sd">               payee_receivable_fx_rate_id (str, optional): The payee receivable FX rate ID.</span>
+<span class="sd">               disbursement_mode (str, optional): The disbursement mode.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">platform_fees</span><span class="p">:</span> <span class="n">PlatformFees</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">payee_pricing_tier_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">payee_receivable_fx_rate_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">disbursement_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                      Initializes the PaymentInstruction object.</span>
+
+<span class="sd">                      Args:</span>
+<span class="sd">                          platform_fees (PlatformFees, optional): The platform fees.</span>
+<span class="sd">                          payee_pricing_tier_id (str, optional): The payee pricing tier ID.</span>
+<span class="sd">                          payee_receivable_fx_rate_id (str, optional): The payee receivable FX rate ID.</span>
+<span class="sd">                          disbursement_mode (str, optional): The disbursement mode.</span>
+<span class="sd">                      &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">platform_fees</span> <span class="o">=</span> <span class="n">platform_fees</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payee_pricing_tier_id</span> <span class="o">=</span> <span class="n">payee_pricing_tier_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payee_receivable_fx_rate_id</span> <span class="o">=</span> <span class="n">payee_receivable_fx_rate_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disbursement_mode</span> <span class="o">=</span> <span class="n">disbursement_mode</span>
+
+<div class="viewcode-block" id="PaymentInstruction.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PaymentInstruction.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the PaymentInstruction object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the PaymentInstruction.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;platform_fees&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">platform_fees</span><span class="p">),</span>
+            <span class="s1">&#39;payee_pricing_tier_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">payee_pricing_tier_id</span><span class="p">,</span>
+            <span class="s1">&#39;payee_receivable_fx_rate_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">payee_receivable_fx_rate_id</span><span class="p">,</span>
+            <span class="s1">&#39;disbursement_mode&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">disbursement_mode</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Options">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Options">[docs]</a>
+<span class="k">class</span> <span class="nc">Options</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           Represents options for shipping.</span>
+
+<span class="sd">           Attributes:</span>
+<span class="sd">               id_num (str, optional): The ID of the option.</span>
+<span class="sd">               label (str, optional): The label of the option.</span>
+<span class="sd">               selected (bool, optional): Whether the option is selected.</span>
+<span class="sd">               type (str, optional): The type of the option.</span>
+<span class="sd">               amount (UnitAmount, optional): The amount for the option.</span>
+<span class="sd">           &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">TYPE</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">amount</span><span class="p">:</span> <span class="n">UnitAmount</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                      Initializes the Options object.</span>
+
+<span class="sd">                      Args:</span>
+<span class="sd">                          id_num (str, optional): The ID of the option.</span>
+<span class="sd">                          label (str, optional): The label of the option.</span>
+<span class="sd">                          selected (bool, optional): Whether the option is selected.</span>
+<span class="sd">                          type (str, optional): The type of the option.</span>
+<span class="sd">                          amount (UnitAmount, optional): The amount for the option.</span>
+<span class="sd">                      &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">id_num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selected</span> <span class="o">=</span> <span class="n">selected</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">TYPE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+
+<div class="viewcode-block" id="Options.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Options.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Converts the Options object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                       Returns:</span>
+<span class="sd">                           dict: The JSON-serializable dictionary representation of the Options.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+            <span class="s1">&#39;selected&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">selected</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+            <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Name">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Name">[docs]</a>
+<span class="k">class</span> <span class="nc">Name</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents a name.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                name (str): The name.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the Name object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            name (str): The name.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<div class="viewcode-block" id="Name.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Name.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Name object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Name.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Shipping">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Shipping">[docs]</a>
+<span class="k">class</span> <span class="nc">Shipping</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents shipping information.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                type (str, optional): The type of shipping.</span>
+<span class="sd">                options (Options, optional): The shipping options.</span>
+<span class="sd">                name (Name, optional): The name of the recipient.</span>
+<span class="sd">                address (ShippingAddress, optional): The shipping address.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">TYPE</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Name</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">address</span><span class="p">:</span> <span class="n">ShippingAddress</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the Shipping object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            TYPE (str, optional): The type of shipping.</span>
+<span class="sd">                            options (Options, optional): The shipping options.</span>
+<span class="sd">                            name (Name, optional): The name of the recipient.</span>
+<span class="sd">                            address (ShippingAddress, optional): The shipping address.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">TYPE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+
+<div class="viewcode-block" id="Shipping.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.Shipping.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the Shipping object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the Shipping.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+            <span class="s1">&#39;options&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">),</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+            <span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SupplementaryData">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.SupplementaryData">[docs]</a>
+<span class="k">class</span> <span class="nc">SupplementaryData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents supplementary data for a transaction.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                card (Card): The card information.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">card</span><span class="p">:</span> <span class="n">Card</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the SupplementaryData object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            card (Card): The card information.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">card</span> <span class="o">=</span> <span class="n">card</span>
+
+<div class="viewcode-block" id="SupplementaryData.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.SupplementaryData.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the SupplementaryData object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the SupplementaryData.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;card&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">card</span><span class="p">)</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="c1"># PURCHASE UNIT</span>
+
+
+<div class="viewcode-block" id="PurchaseUnit">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit">[docs]</a>
+<span class="k">class</span> <span class="nc">PurchaseUnit</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents a purchase unit.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                amount (Amount): The amount information.</span>
+<span class="sd">                reference_id (str, optional): The reference ID.</span>
+<span class="sd">                description (str, optional): The description of the purchase unit.</span>
+<span class="sd">                customer_id (str, optional): The customer ID.</span>
+<span class="sd">                invoice_id (str, optional): The invoice ID.</span>
+<span class="sd">                soft_descriptor (str, optional): The soft descriptor.</span>
+<span class="sd">                items (list of OrderItem, optional): The list of items in the purchase unit.</span>
+<span class="sd">                payee (Payee, optional): The payee information.</span>
+<span class="sd">                payment_instruction (PaymentInstruction, optional): The payment instruction information.</span>
+<span class="sd">                shipping (Shipping, optional): The shipping information.</span>
+<span class="sd">                supplementary_data (SupplementaryData, optional): The supplementary data.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="n">Amount</span><span class="p">,</span> <span class="n">reference_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">customer_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">invoice_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">soft_descriptor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="p">[</span><span class="n">OrderItem</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">payee</span><span class="p">:</span> <span class="n">Payee</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">payment_instruction</span><span class="p">:</span> <span class="n">PaymentInstruction</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">shipping</span><span class="p">:</span> <span class="n">Shipping</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">supplementary_data</span><span class="p">:</span> <span class="n">SupplementaryData</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Initializes the PurchaseUnit object.</span>
+
+<span class="sd">                       Args:</span>
+<span class="sd">                           amount (Amount): The amount information.</span>
+<span class="sd">                           reference_id (str, optional): The reference ID.</span>
+<span class="sd">                           description (str, optional): The description of the purchase unit.</span>
+<span class="sd">                           customer_id (str, optional): The customer ID.</span>
+<span class="sd">                           invoice_id (str, optional): The invoice ID.</span>
+<span class="sd">                           soft_descriptor (str, optional): The soft descriptor.</span>
+<span class="sd">                           items (list of OrderItem, optional): The list of items in the purchase unit.</span>
+<span class="sd">                           payee (Payee, optional): The payee information.</span>
+<span class="sd">                           payment_instruction (PaymentInstruction, optional): The payment instruction information.</span>
+<span class="sd">                           shipping (Shipping, optional): The shipping information.</span>
+<span class="sd">                           supplementary_data (SupplementaryData, optional): The supplementary data.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reference_id</span> <span class="o">=</span> <span class="n">reference_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customer_id</span> <span class="o">=</span> <span class="n">customer_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invoice_id</span> <span class="o">=</span> <span class="n">invoice_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">soft_descriptor</span> <span class="o">=</span> <span class="n">soft_descriptor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payee</span> <span class="o">=</span> <span class="n">payee</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payment_instruction</span> <span class="o">=</span> <span class="n">payment_instruction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shipping</span> <span class="o">=</span> <span class="n">shipping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">supplementary_data</span> <span class="o">=</span> <span class="n">supplementary_data</span>
+
+<div class="viewcode-block" id="PurchaseUnit.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.PurchaseUnit.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                       Converts the PurchaseUnit object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                       Returns:</span>
+<span class="sd">                           dict: The JSON-serializable dictionary representation of the PurchaseUnit.</span>
+<span class="sd">                       &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">),</span>
+            <span class="s1">&#39;reference_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reference_id</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+            <span class="s1">&#39;customer_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">customer_id</span><span class="p">,</span>
+            <span class="s1">&#39;invoice_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">invoice_id</span><span class="p">,</span>
+            <span class="s1">&#39;soft_descriptor&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">soft_descriptor</span><span class="p">,</span>
+            <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">json</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;payee&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">payee</span><span class="p">),</span>
+            <span class="s1">&#39;payment_instruction&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">payment_instruction</span><span class="p">),</span>
+            <span class="s1">&#39;shipping&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shipping</span><span class="p">),</span>
+            <span class="s1">&#39;supplementary_data&#39;</span><span class="p">:</span> <span class="n">json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">supplementary_data</span><span class="p">),</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="OrderBody">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.OrderBody">[docs]</a>
+<span class="k">class</span> <span class="nc">OrderBody</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Represents the body of an order.</span>
+
+<span class="sd">            Attributes:</span>
+<span class="sd">                purchase_units (list of PurchaseUnit): The list of purchase units.</span>
+<span class="sd">                intent (str): The intent of the order.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">purchase_units</span><span class="p">:</span> <span class="p">[</span><span class="n">PurchaseUnit</span><span class="p">],</span> <span class="n">intent</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Initializes the OrderBody object.</span>
+
+<span class="sd">                        Args:</span>
+<span class="sd">                            purchase_units (list of PurchaseUnit): The list of purchase units.</span>
+<span class="sd">                            intent (str): The intent of the order.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">purchase_unit</span> <span class="o">=</span> <span class="n">purchase_units</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intent</span> <span class="o">=</span> <span class="n">intent</span>
+
+<div class="viewcode-block" id="OrderBody.toJson">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.req_body_paypal.OrderBody.toJson">[docs]</a>
+    <span class="k">def</span> <span class="nf">toJson</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                        Converts the OrderBody object to a JSON-serializable dictionary.</span>
+
+<span class="sd">                        Returns:</span>
+<span class="sd">                            dict: The JSON-serializable dictionary representation of the OrderBody.</span>
+<span class="sd">                        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nonNull</span><span class="p">({</span>
+            <span class="s1">&#39;purchase_units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">json</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">purchase_unit</span><span class="p">],</span>
+            <span class="s1">&#39;intent&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">intent</span>
+        <span class="p">})</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">OrderBody</span><span class="p">(</span>
+        <span class="n">purchase_units</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">PurchaseUnit</span><span class="p">(</span><span class="n">amount</span><span class="o">=</span><span class="n">Amount</span><span class="p">(</span><span class="s1">&#39;USD&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="p">],</span>
+        <span class="n">intent</span><span class="o">=</span><span class="s1">&#39;CAPTURE&#39;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Shaukat Bint Arhin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pycomms_pay.payment_package.paystack &mdash; PyCommsPay 1.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            PyCommsPay
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PyCommsPay</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pycomms_pay.payment_package.paystack</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pycomms_pay.payment_package.paystack</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">pycomms_pay.payment_package.req_body_paystack</span> <span class="kn">import</span> <span class="n">InitializeBody</span><span class="p">,</span> <span class="n">ChargeAuth</span><span class="p">,</span> <span class="n">Metadata</span><span class="p">,</span> <span class="n">CustomFields</span><span class="p">,</span> <span class="n">Info2</span><span class="p">,</span> \
+    <span class="n">Info1</span>
+
+<span class="kn">from</span> <span class="nn">pycomms_pay.payment_package.config</span> <span class="kn">import</span> <span class="n">test_secret</span>
+
+
+<div class="viewcode-block" id="Paystack">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.paystack.Paystack">[docs]</a>
+<span class="k">class</span> <span class="nc">Paystack</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to interact with the Paystack API for initializing transactions, verifying transactions, and charging</span>
+<span class="sd">    authorizations.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            ref (str): The reference ID for the transaction.</span>
+<span class="sd">            test_secret (str): The secret key for authentication.</span>
+<span class="sd">            base_url (str): The base URL for the Paystack API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_secret</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">              Initializes the Paystack client.</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                    test_secret (str): The secret key for authentication.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authorize</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">access_code</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_secret</span> <span class="o">=</span> <span class="n">test_secret</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.paystack.co&quot;</span>
+
+<div class="viewcode-block" id="Paystack.initialize_transaction">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.paystack.Paystack.initialize_transaction">[docs]</a>
+    <span class="k">def</span> <span class="nf">initialize_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initial_body</span><span class="p">:</span> <span class="n">InitializeBody</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Sends a request to initialize a transaction and retrieves the access code.</span>
+
+<span class="sd">                This method initializes a transaction using the provided details and retrieves</span>
+<span class="sd">                an access code for further processing. The access code can be used for redirecting</span>
+<span class="sd">                the user to the Paystack payment page or for other transaction operations.</span>
+
+<span class="sd">                :param initial_body: An instance of InitializeBody containing transaction details.</span>
+<span class="sd">                :type initial_body: InitializeBody</span>
+
+<span class="sd">                :raises Exception: If the request fails or the response status code is not 201.</span>
+
+<span class="sd">                :return: None</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/transaction/initialize&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">test_secret</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Content_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">initial_body</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request Successful&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_code</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;access code success&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Paystack.verify_transaction">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.paystack.Paystack.verify_transaction">[docs]</a>
+    <span class="k">def</span> <span class="nf">verify_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ref</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Sends a request to verify a transaction using the provided reference.</span>
+
+<span class="sd">                This method verifies a transaction with the given reference and retrieves</span>
+<span class="sd">                details about the transaction. If successful, it updates the `access_code`</span>
+<span class="sd">                with the data from the response.</span>
+
+<span class="sd">                :param ref: The reference or token for the transaction to be verified.</span>
+<span class="sd">                :type ref: str</span>
+
+<span class="sd">                :raises Exception: If the request fails or the response status code is not 200.</span>
+
+<span class="sd">                :return: None</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/transaction/verify/</span><span class="si">{</span><span class="n">ref</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">test_secret</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Content_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request Successful&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_code</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;access code success&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="Paystack.charge_authorization">
+<a class="viewcode-back" href="../../../pycomms_pay.payment_package.html#pycomms_pay.payment_package.paystack.Paystack.charge_authorization">[docs]</a>
+    <span class="k">def</span> <span class="nf">charge_authorization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">charge_auth</span><span class="p">:</span> <span class="n">ChargeAuth</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">               Sends a request to verify a charge authorization and update the access code.</span>
+
+<span class="sd">               This method verifies a transaction authorization and retrieves the access code</span>
+<span class="sd">               associated with it. It uses the provided authorization and charge details to</span>
+<span class="sd">               perform the verification.</span>
+
+<span class="sd">               :param auth: The authorization reference or token for the charge.</span>
+<span class="sd">               :type auth: str</span>
+<span class="sd">               :param charge_auth: An instance of ChargeAuth containing charge details.</span>
+<span class="sd">               :type charge_auth: ChargeAuth</span>
+
+<span class="sd">               :raises Exception: If the request fails or the response status code is not 200.</span>
+
+<span class="sd">               :return: None</span>
+<span class="sd">               &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">authorize</span> <span class="o">=</span> <span class="n">auth</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/transaction/verify/</span><span class="si">{</span><span class="n">auth</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">test_secret</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Content_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">charge_auth</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request Successful&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_code</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;access code success&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">paystack</span> <span class="o">=</span> <span class="n">Paystack</span><span class="p">(</span><span class="n">test_secret</span><span class="p">)</span>
+
+    <span class="n">info1</span> <span class="o">=</span> <span class="n">Info1</span><span class="p">(</span><span class="s1">&#39;Display Name 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Variable Name 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Value 1&#39;</span><span class="p">)</span>
+    <span class="n">info2</span> <span class="o">=</span> <span class="n">Info2</span><span class="p">(</span><span class="s1">&#39;Display Name 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Variable Name 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Value 2&#39;</span><span class="p">)</span>
+    <span class="n">custom1_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">Info1</span><span class="p">(</span><span class="s1">&#39;Custom Field 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Variable 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Value 1&#39;</span><span class="p">),</span>
+                     <span class="n">Info2</span><span class="p">(</span><span class="s1">&#39;Custom Field 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Variable 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Custom Value 2&#39;</span><span class="p">)]</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">(</span><span class="s1">&#39;Cart123&#39;</span><span class="p">,</span> <span class="n">custom1_fields</span><span class="p">,</span> <span class="n">info1</span><span class="p">,</span> <span class="n">info2</span><span class="p">)</span>
+    <span class="n">custom_fields</span> <span class="o">=</span> <span class="n">CustomFields</span><span class="p">(</span><span class="n">info1</span><span class="p">,</span><span class="n">info2</span><span class="p">)</span>
+
+    <span class="n">initial_body</span> <span class="o">=</span> <span class="n">InitializeBody</span><span class="p">(</span>
+        <span class="n">email</span><span class="o">=</span><span class="s1">&#39;sbarhin@email.com&#39;</span><span class="p">,</span>
+        <span class="n">amount</span><span class="o">=</span><span class="mf">12.34</span><span class="p">,</span>
+        <span class="n">currency</span><span class="o">=</span><span class="s1">&#39;GHS&#39;</span><span class="p">,</span>
+        <span class="n">reference</span><span class="o">=</span><span class="s2">&quot;yeah&quot;</span><span class="p">,</span>
+        <span class="n">callback_url</span><span class="o">=</span><span class="s1">&#39;https://example.com/&#39;</span><span class="p">,</span>
+        <span class="n">plan</span><span class="o">=</span><span class="s1">&#39;PLN_5iqere3ep5wqu03&#39;</span><span class="p">,</span>
+        <span class="n">invoice_limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span>
+        <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mobile_money&#39;</span><span class="p">,</span> <span class="s1">&#39;card&#39;</span><span class="p">],</span>
+        <span class="c1"># split_code=&#39;SPL_123AbZ&#39;,</span>
+        <span class="n">transaction_charge</span><span class="o">=</span><span class="mf">15.66</span><span class="p">,</span>
+        <span class="c1"># bearer=&#39;subaccount&#39;</span>
+
+    <span class="p">)</span>
+    <span class="n">paystack</span><span class="o">.</span><span class="n">initialize_transaction</span><span class="p">(</span><span class="n">initial_body</span><span class="p">)</span>
+
+    <span class="n">paystack</span><span class="o">.</span><span class="n">verify_transaction</span><span class="p">(</span><span class="s1">&#39;yeah&#39;</span><span class="p">)</span>
+
+    <span class="n">charge_auth</span> <span class="o">=</span> <span class="n">ChargeAuth</span><span class="p">(</span>
+        <span class="n">email</span><span class="o">=</span><span class="s1">&#39;user@example.com&#39;</span><span class="p">,</span>
+        <span class="n">currency</span><span class="o">=</span><span class="s1">&#39;GHS&#39;</span><span class="p">,</span>
+        <span class="n">amount</span><span class="o">=</span><span class="mf">50.00</span><span class="p">,</span>
+        <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;shau1=&#39;</span><span class="p">,</span>
+        <span class="n">callback_url</span><span class="o">=</span><span class="s1">&#39;https://example.com/&#39;</span><span class="p">,</span>
+        <span class="n">invoice_limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;card&#39;</span><span class="p">,</span> <span class="s1">&#39;bank&#39;</span><span class="p">],</span>
+        <span class="c1"># split_code=&#39;SPLIT123&#39;,</span>
+        <span class="n">transaction_charge</span><span class="o">=</span><span class="mf">100.00</span><span class="p">,</span>
+        <span class="c1"># bearer=&#39;bearer&#39;,</span>
+        <span class="n">authorization_code</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">cart_id</span><span class="o">=</span><span class="s1">&#39;Cart123&#39;</span><span class="p">,</span>
+        <span class="n">custom_fields</span><span class="o">=</span><span class="n">custom_fields</span><span class="p">,</span>
+        <span class="n">queue</span><span class="o">=</span><span class="s1">&#39;Queue123&#39;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">charge_auth</span><span class="o">.</span><span class="n">toJson</span><span class="p">())</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Shaukat Bint Arhin.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

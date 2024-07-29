@@ -48,6 +48,7 @@ class Gmail:
     def get_message(self, message_id):
         return _get_message(self.service, message_id)
 
+
 if __name__ == '__main__':
 
     # all the functions should be here. how move them here
@@ -65,6 +66,6 @@ if __name__ == '__main__':
     if len(messages) != 0:
         message = gmail.get_message(messages[0]['id'])
 
-# DELETE MESSAGE
+    # DELETE MESSAGE
     if len(messages) != 0:
         gmail.trash_message(messages[0]['id'])
