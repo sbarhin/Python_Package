@@ -11,7 +11,27 @@ API_BASE_URL = "https://sandbox.momodeveloper.mtn.com"
 
 
 class Momo:
+    """
+        A class to interact with the MTN MoMo API for sending money, checking balance, and verifying transactions.
+
+        Attributes:
+            api_base_url (str): The base URL for the MoMo API.
+            api_key (str): The API key for authentication.
+            subscription_key (str): The subscription key for the MoMo API.
+            user_id (str): The user ID for authentication.
+            session (requests.Session): The requests session for making API calls.
+            token (str): The access token for authenticated requests.
+            auth (str): The base64 encoded authentication string.
+        """
     def __init__(self, api_key, subscription_key, user_id):
+        """
+               Initializes the Momo client and authenticates the user.
+
+               Args:
+                   api_key (str): The API key for authentication.
+                   subscription_key (str): The subscription key for the MoMo API.
+                   user_id (str): The user ID for authentication.
+               """
         self.api_base_url = API_BASE_URL
         self.api_key = api_key
         self.subscription_key = subscription_key
@@ -32,12 +52,35 @@ class Momo:
         self.get_token()
 
     def get_token(self):
+        """
+                Retrieves and sets the access token for authenticated requests.
+
+                Raises:
+                    requests.exceptions.RequestException: If an error occurs while fetching the token.
+                """
         url = f"{self.api_base_url}/collection/token/"
         response = self.session.post(url)
         response.raise_for_status()
         self.token = response.json().get("access_token")
 
     def transfer_money(self, amount, currency, external_id, payer, payee_note, payer_message):
+        """
+               Initiates a money transfer request.
+
+               Args:
+                   amount (str): The amount of money to transfer.
+                   currency (str): The currency of the amount.
+                   external_id (str): The external ID for the transaction.
+                   payer (str): The payer's MSISDN (mobile number).
+                   payee_note (str): The note for the payee.
+                   payer_message (str): The message for the payer.
+
+               Returns:
+                   dict: A dictionary containing the response status code and reference ID.
+
+               Raises:
+                   requests.exceptions.RequestException: If an error occurs while initiating the transfer.
+               """
         url = f"{self.api_base_url}/collection/v1_0/requesttopay"
         token = self.token
         uuidgen = str(uuid.uuid4())
@@ -63,6 +106,15 @@ class Momo:
         return context
 
     def momobalance(self):
+        """
+               Retrieves the account balance.
+
+               Returns:
+                   dict: A dictionary containing the account balance details.
+
+               Raises:
+                   requests.exceptions.RequestException: If an error occurs while fetching the balance.
+               """
         url = f"{self.api_base_url}/collection/v1_0/account/balance"
 
         payload = {}
@@ -78,6 +130,18 @@ class Momo:
         return json_respon
 
     def verifymomo(self, txn):
+        """
+                Verifies the status of a MoMo transaction.
+
+                Args:
+                    txn (str): The transaction ID to verify.
+
+                Returns:
+                    dict: A dictionary containing the transaction details.
+
+                Raises:
+                    requests.exceptions.RequestException: If an error occurs while verifying the transaction.
+                """
         url = f"{self.api_base_url}/collection/v1_0/requesttopay/" + str(txn) + ""
         payload = {}
         headers = {

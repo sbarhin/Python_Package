@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name='pycomms_pay',
-    version='1.1.1',
+    version='1.1.2',
     description='A package for seamless Email, SMS and Payment Packages Integration',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/sbarhin/Python_Package',
-    author='Shaukat Arhin',
+    author='Shaukat Bint Arhin',
     author_email='shaubint123@gmail.com',
     license='MIT',
     packages=find_packages(),

@@ -14,6 +14,10 @@ pycomms_pay/email_package/trash.py
 pycomms_pay/payment_package/__init__.py
 pycomms_pay/payment_package/config.py
 pycomms_pay/payment_package/momo.py
+pycomms_pay/payment_package/paypal.py
+pycomms_pay/payment_package/paystack.py
+pycomms_pay/payment_package/req_body_paypal.py
+pycomms_pay/payment_package/req_body_paystack.py
 pycomms_pay/sms_package/__init__.py
 pycomms_pay/sms_package/config.py
 pycomms_pay/sms_package/sms.py
